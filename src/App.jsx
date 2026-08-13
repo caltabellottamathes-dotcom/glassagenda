@@ -15,6 +15,17 @@ import Weekplanning from './pages/Weekplanning';
 import Dagplanning from './pages/Dagplanning';
 import Projecten from './pages/Projecten';
 import Contacten from './pages/Contacten';
+import TaakDetails from './pages/TaakDetails';
+import PrioriteitenMatrix from './pages/PrioriteitenMatrix';
+import Notitieblok from './pages/Notitieblok';
+import Instellingen from './pages/Instellingen';
+import Tijdsregistratie from './pages/Tijdsregistratie';
+import Archief from './pages/Archief';
+import FocusModus from './pages/FocusModus';
+import DagelijkseBriefing from './pages/DagelijkseBriefing';
+import DoelenDashboard from './pages/DoelenDashboard';
+import VergaderNotities from './pages/VergaderNotities';
+import InspiratieBord from './pages/InspiratieBord';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -51,6 +62,17 @@ const AuthenticatedApp = () => {
       <Route path="/dagplanning" element={<Dagplanning />} />
       <Route path="/projecten" element={<Projecten />} />
       <Route path="/contacten" element={<Contacten />} />
+      <Route path="/taak-details" element={<TaakDetails />} />
+      <Route path="/prioriteiten-matrix" element={<PrioriteitenMatrix />} />
+      <Route path="/notitieblok" element={<Notitieblok />} />
+      <Route path="/instellingen" element={<Instellingen />} />
+      <Route path="/tijdsregistratie" element={<Tijdsregistratie />} />
+      <Route path="/archief" element={<Archief />} />
+      <Route path="/focus-modus" element={<FocusModus />} />
+      <Route path="/dagelijkse-briefing" element={<DagelijkseBriefing />} />
+      <Route path="/doelen-dashboard" element={<DoelenDashboard />} />
+      <Route path="/vergader-notities" element={<VergaderNotities />} />
+      <Route path="/inspiratie-bord" element={<InspiratieBord />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
