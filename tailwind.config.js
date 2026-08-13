@@ -43,6 +43,13 @@ module.exports = {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
+  			metal: 'hsl(var(--metal))',
+  			clay: 'hsl(var(--clay))',
+  			sand: 'hsl(var(--sand))',
+  			sky: 'hsl(var(--sky))',
+  			marble: 'hsl(var(--marble))',
+  			storm: 'hsl(var(--storm))',
+  			urgent: 'hsl(var(--urgent))',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',

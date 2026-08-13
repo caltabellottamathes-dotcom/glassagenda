@@ -41,6 +41,13 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --metal: 60 12% 16%;
+    --clay: 58 15% 46%;
+    --sand: 58 23% 47%;
+    --sky: 203 16% 74%;
+    --marble: 51 17% 85%;
+    --storm: 60 7% 95%;
+    --urgent: 65 72% 59%;
   }
 
   .dark {
