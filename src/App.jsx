@@ -11,6 +11,10 @@ import Home from './pages/Home';
 import Takenoverzicht from './pages/Takenoverzicht';
 import Statistieken from './pages/Statistieken';
 import AgendaOverzicht from './pages/AgendaOverzicht';
+import Weekplanning from './pages/Weekplanning';
+import Dagplanning from './pages/Dagplanning';
+import Projecten from './pages/Projecten';
+import Contacten from './pages/Contacten';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -43,6 +47,10 @@ const AuthenticatedApp = () => {
       <Route path="/takenoverzicht" element={<Takenoverzicht />} />
       <Route path="/statistieken" element={<Statistieken />} />
       <Route path="/agenda-overzicht" element={<AgendaOverzicht />} />
+      <Route path="/weekplanning" element={<Weekplanning />} />
+      <Route path="/dagplanning" element={<Dagplanning />} />
+      <Route path="/projecten" element={<Projecten />} />
+      <Route path="/contacten" element={<Contacten />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

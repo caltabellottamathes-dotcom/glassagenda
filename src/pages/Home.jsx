@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Search, Mail, FileText, Calendar, Plus, ChevronDown, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { PageShell, GlassPanel, GlassButton, SectionHeader, Divider } from "@/components/glass";
-import QuickNote from "@/components/widgets/QuickNote";
-import FocusTimer from "@/components/widgets/FocusTimer";
-import PriorityMatrix from "@/components/widgets/PriorityMatrix";
-import GoalsTracker from "@/components/widgets/GoalsTracker";
+
 
 const WEEKDAYS = ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za"];
 const MONTHS = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
@@ -58,9 +55,13 @@ function MiniCalendar() {
 
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/takenoverzicht", label: "Takenoverzicht" },
+  { to: "/weekplanning", label: "Week" },
+  { to: "/dagplanning", label: "Dag" },
+  { to: "/projecten", label: "Projecten" },
+  { to: "/contacten", label: "Contacten" },
+  { to: "/takenoverzicht", label: "Taken" },
   { to: "/statistieken", label: "Statistieken" },
-  { to: "/agenda-overzicht", label: "Agenda Overzicht" },
+  { to: "/agenda-overzicht", label: "Agenda" },
 ];
 
 export default function Home() {
@@ -137,16 +138,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-
-      <Divider className="my-6" />
-
-      {/* Tools */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <QuickNote />
-        <FocusTimer />
-        <PriorityMatrix />
-        <GoalsTracker />
       </div>
 
       <Divider className="my-6" />
