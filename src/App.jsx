@@ -8,6 +8,9 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 // Add page imports here
 import Home from './pages/Home';
+import Takenoverzicht from './pages/Takenoverzicht';
+import Statistieken from './pages/Statistieken';
+import AgendaOverzicht from './pages/AgendaOverzicht';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -37,6 +40,9 @@ const AuthenticatedApp = () => {
     <Routes>
       {/* Add your page Route elements here */}
       <Route path="/" element={<Home />} />
+      <Route path="/takenoverzicht" element={<Takenoverzicht />} />
+      <Route path="/statistieken" element={<Statistieken />} />
+      <Route path="/agenda-overzicht" element={<AgendaOverzicht />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

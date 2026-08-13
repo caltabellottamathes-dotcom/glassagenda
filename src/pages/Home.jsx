@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Search, Mail, FileText, Calendar, Plus, ChevronDown, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
 const WEEKDAYS = ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za"];
@@ -113,7 +114,14 @@ export default function Home() {
       />
 
       <div className="relative z-10 flex items-center justify-center min-h-screen p-4 sm:p-8">
-        <GlassPanel className="w-full max-w-6xl p-6 sm:p-10 flex flex-col lg:flex-row gap-6">
+        {/* Top nav */}
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-2">
+          <Link to="/" className="px-4 py-2 rounded-full border border-marble/30 bg-marble/10 backdrop-blur-md text-storm text-xs hover:bg-marble/20 transition-colors">Home</Link>
+          <Link to="/takenoverzicht" className="px-4 py-2 rounded-full border border-marble/30 bg-marble/10 backdrop-blur-md text-storm text-xs hover:bg-marble/20 transition-colors">Takenoverzicht</Link>
+          <Link to="/statistieken" className="px-4 py-2 rounded-full border border-marble/30 bg-marble/10 backdrop-blur-md text-storm text-xs hover:bg-marble/20 transition-colors">Statistieken</Link>
+          <Link to="/agenda-overzicht" className="px-4 py-2 rounded-full border border-marble/30 bg-marble/10 backdrop-blur-md text-storm text-xs hover:bg-marble/20 transition-colors">Agenda Overzicht</Link>
+        </div>
+        <GlassPanel className="w-full max-w-6xl p-6 sm:p-10 flex flex-col lg:flex-row gap-6 mt-10">
           <div className="relative flex flex-col lg:flex-row gap-6 w-full">
             {/* Left section ~40% */}
             <div className="lg:w-2/5 lg:pr-6 flex flex-col justify-between min-h-[260px]">
