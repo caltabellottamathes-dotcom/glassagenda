@@ -10,9 +10,15 @@ export function PageShell({ children, maxWidth = "max-w-6xl" }) {
             "radial-gradient(circle at 18% 16%, rgba(224,222,211,0.22) 0%, rgba(242,242,240,0.10) 28%, rgba(45,45,35,0) 60%)",
         }}
       />
-      <div className={`relative z-10 mx-auto ${maxWidth} px-4 sm:px-8 py-8`}>{children}</div>
+      <div className={`relative z-10 mx-auto ${maxWidth} px-4 sm:px-8 py-8`}>
+        <GlassPanel className="p-6 sm:p-8">{children}</GlassPanel>
+      </div>
     </div>
   );
+}
+
+export function Divider({ className = "" }) {
+  return <div className={`h-px bg-marble/20 ${className}`} />;
 }
 
 export function GlassPanel({ className = "", children }) {
