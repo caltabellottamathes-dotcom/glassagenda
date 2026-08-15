@@ -2,12 +2,17 @@ import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
 const ROUTINES = [
-  { time: "08:00", label: "MORNING", done: true },
-  { time: "11:30", label: "WORK", done: true },
-  { time: "14:00", label: "MOVEMENT", current: true },
-  { time: "17:00", label: "MOVEMENT", pending: true },
-  { time: "22:00", label: "EVENING", pending: true },
+  { time: "08:00", label: "MORNING", dur: 60, done: true },
+  { time: "11:30", label: "WORK", dur: 150, done: true },
+  { time: "14:00", label: "MOVEMENT", dur: 30, current: true },
+  { time: "17:00", label: "FOCUS SESSION", dur: 60, pending: true },
+  { time: "22:00", label: "EVENING", dur: 60, pending: true },
 ];
+
+const START = 6, END = 24;
+const toPct = (time) => { const [h, m] = time.split(":").map(Number); return ((h - START) + m / 60) / (END - START) * 100; };
+const wPct = (dur) => (dur / 60) / (END - START) * 100;
+const HOURS = [6, 9, 12, 15, 18, 21, 24];
 
 export default function RoutinesPanel() {
   const r = 54, c = 2 * Math.PI * r, pct = 60;
@@ -43,25 +48,36 @@ export default function RoutinesPanel() {
         <p className="text-marble/60 text-sm leading-relaxed max-w-sm">De dag loopt in vijf routines. Je bent aangekomen bij de middag — beweging staat klaar.</p>
       </div>
 
-      <div className="relative max-w-lg mx-auto">
-        <div className="absolute left-[120px] top-5 bottom-5 w-px bg-marble/20" />
-        {ROUTINES.map((rt, i) => (
-          <div key={i} className="flex items-center gap-6 py-5 relative">
-            <span className="w-24 text-storm text-xl font-semibold tabular-nums text-right">{rt.time}</span>
-            <span className="relative z-10">
-              {rt.current ? (
-                <span className="block w-7 h-7 rounded-full bg-urgent animate-pulse shadow-[0_0_0_8px_rgba(213,226,74,0.15)]" />
-              ) : rt.done ? (
-                <span className="block w-5 h-5 rounded-full bg-urgent border-2 border-metal" />
-              ) : (
-                <span className="block w-5 h-5 rounded-full border-2 border-marble/40 bg-marble/5" />
-              )}
-            </span>
-            <span className={`uppercase tracking-wide ${rt.current ? "text-urgent text-2xl font-bold" : rt.done ? "text-marble/55 line-through text-lg" : "text-storm text-lg"}`}>
-              {rt.label}
-            </span>
+      {/* Day timeline */}
+      <div className="rounded-2xl border border-marble/15 bg-marble/5 p-6">
+        <div className="relative h-28">
+          {/* hour ruler */}
+          <div className="absolute top-0 left-0 right-0 flex justify-between text-marble/40 text-[10px] tabular-nums">
+            {HOURS.map((h) => <span key={h} className="-translate-x-1/2" style={{ marginLeft: h === 6 ? "0.5rem" : 0, marginRight: h === 24 ? "0.5rem" : 0 }}>{String(h).padStart(2, "0")}</span>)}
           </div>
-        ))}
+          <div className="absolute top-5 left-0 right-0 h-px bg-marble/20" />
+          {/* now line */}
+          <div className="absolute top-4 bottom-0 w-px bg-urgent/60" style={{ left: `${toPct("14:00")}%` }}>
+            <span className="absolute -top-1 -translate-x-1/2 w-2 h-2 rounded-full bg-urgent" />
+          </div>
+          {/* blocks */}
+          <div className="absolute top-7 bottom-2 left-0 right-0">
+            {ROUTINES.map((rt) => (
+              <div
+                key={rt.label}
+                className={`absolute h-7 rounded-lg flex items-center px-2 ${rt.current ? "bg-urgent text-metal animate-pulse shadow-[0_0_0_4px_rgba(213,226,74,0.15)]" : rt.done ? "bg-marble/25 text-marble/60" : "bg-marble/10 text-marble/50 border border-marble/20"}`}
+                style={{ left: `${toPct(rt.time)}%`, width: `${wPct(rt.dur)}%`, top: `${ROUTINES.indexOf(rt) * 12}px` }}
+              >
+                <span className="text-[9px] font-medium tracking-wide truncate">{rt.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex gap-4 mt-2 text-[10px] tracking-wider">
+          <span className="flex items-center gap-1.5 text-marble/70"><span className="w-2.5 h-2.5 rounded-sm bg-marble/25"/>DONE</span>
+          <span className="flex items-center gap-1.5 text-urgent"><span className="w-2.5 h-2.5 rounded-sm bg-urgent"/>NOW</span>
+          <span className="flex items-center gap-1.5 text-marble/50"><span className="w-2.5 h-2.5 rounded-sm border border-marble/30"/>UPCOMING</span>
+        </div>
       </div>
     </PanelShell>
   );

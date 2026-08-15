@@ -2,12 +2,13 @@ import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
 const NODES = [
-  { label: "LEARNING", pos: "top", status: "MOVING" },
-  { label: "CREATIVE", pos: "left", status: "ACTIVE" },
-  { label: "PERSONAL", pos: "right", status: "STALLED" },
-  { label: "PRACTICE", pos: "bottom", status: "MOVING" },
+  { label: "LEARNING", pos: "top", status: "MOVING", progress: 68, sub: "Typografie · 3/5" },
+  { label: "CREATIVE", pos: "left", status: "ACTIVE", progress: 40, sub: "Concept Brons" },
+  { label: "PERSONAL", pos: "right", status: "STALLED", progress: 15, sub: "Ritmes · stil" },
+  { label: "PRACTICE", pos: "bottom", status: "MOVING", progress: 72, sub: "Dagelijks schrijven" },
 ];
 const tone = { MOVING: "text-urgent", ACTIVE: "text-sky", STALLED: "text-marble/50" };
+const bar = { MOVING: "bg-urgent", ACTIVE: "bg-sky", STALLED: "bg-marble/40" };
 
 function Node({ n }) {
   const cls = {
@@ -17,10 +18,14 @@ function Node({ n }) {
     right: "right-0 top-1/2 -translate-y-1/2",
   }[n.pos];
   return (
-    <div className={`absolute ${cls} w-40 text-center`}>
+    <div className={`absolute ${cls} w-44`}>
       <div className="rounded-2xl border border-marble/25 bg-marble/8 px-4 py-3">
         <p className="text-storm text-base font-semibold">{n.label}</p>
-        <p className={`text-[10px] tracking-[0.2em] mt-1 ${tone[n.status]}`}>{n.status}</p>
+        <p className={`text-[10px] tracking-[0.2em] mt-0.5 ${tone[n.status]}`}>{n.status}</p>
+        <div className="mt-2.5 h-1.5 rounded-full bg-marble/10 overflow-hidden">
+          <div className={`h-full rounded-full ${bar[n.status]}`} style={{ width: `${n.progress}%` }} />
+        </div>
+        <p className="text-marble/50 text-[10px] mt-2">{n.sub}</p>
       </div>
     </div>
   );
@@ -44,25 +49,27 @@ export default function DevelopmentPanel() {
         { label: "Open Development" },
       ]}
     >
-      <div className="relative w-full max-w-2xl mx-auto h-96">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 480 384" preserveAspectRatio="none">
-          <line x1="240" y1="48" x2="240" y2="192" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
-          <line x1="240" y1="192" x2="240" y2="336" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
-          <line x1="48" y1="192" x2="240" y2="192" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
-          <line x1="240" y1="192" x2="432" y2="192" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+      <div className="relative w-full max-w-2xl mx-auto h-[420px]">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 480 420" preserveAspectRatio="none">
+          <line x1="240" y1="60" x2="240" y2="210" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+          <line x1="240" y1="210" x2="240" y2="360" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+          <line x1="60" y1="210" x2="240" y2="210" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+          <line x1="240" y1="210" x2="420" y2="210" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+          <circle cx="240" cy="210" r="44" fill="none" stroke="rgba(213,226,74,0.18)" strokeWidth="1" />
+          <circle cx="240" cy="210" r="60" fill="none" stroke="rgba(213,226,74,0.1)" strokeWidth="1" />
         </svg>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-          <span className="block w-6 h-6 rounded-full bg-urgent shadow-[0_0_0_10px_rgba(213,226,74,0.15)]" />
+          <span className="block w-7 h-7 rounded-full bg-urgent shadow-[0_0_0_12px_rgba(213,226,74,0.15)]" />
           <span className="text-marble/40 text-[9px] tracking-[0.2em] mt-3">NOW</span>
         </div>
         {NODES.map((n) => <Node key={n.label} n={n} />)}
       </div>
 
-      <div className="flex justify-center gap-6 mt-4">
-        {Object.entries(tone).map(([k, v]) => (
+      <div className="flex justify-center gap-6 mt-2">
+        {Object.entries(tone).map(([k]) => (
           <span key={k} className="flex items-center gap-2 text-[10px] tracking-wider uppercase">
-            <span className={`w-2.5 h-2.5 rounded-full ${k === "MOVING" ? "bg-urgent" : k === "ACTIVE" ? "bg-sky" : "bg-marble/40"}`} />
-            <span className={v}>{k}</span>
+            <span className={`w-2.5 h-2.5 rounded-full ${bar[k]}`} />
+            <span className={tone[k]}>{k}</span>
           </span>
         ))}
       </div>

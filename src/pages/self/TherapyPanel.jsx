@@ -1,7 +1,7 @@
 import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
-function Trajectory({ name, nodes, currentIdx }) {
+function Trajectory({ name, nodes, currentIdx, sessions }) {
   return (
     <div>
       <p className="text-urgent text-[10px] uppercase tracking-[0.25em] mb-5">{name}</p>
@@ -18,9 +18,18 @@ function Trajectory({ name, nodes, currentIdx }) {
           );
         })}
       </div>
+      <div className="flex justify-between mt-3 text-marble/40 text-[9px] tracking-wider px-4">
+        {sessions.map((s, i) => <span key={i}>{s}</span>)}
+      </div>
     </div>
   );
 }
+
+const UPCOMING = [
+  { d: "THU", t: "14:00", tr: "A" },
+  { d: "MON", t: "10:00", tr: "A" },
+  { d: "WED", t: "15:30", tr: "B" },
+];
 
 export default function TherapyPanel() {
   return (
@@ -41,20 +50,33 @@ export default function TherapyPanel() {
       ]}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
-        <Trajectory name="TRAJECTORY A" nodes={["START", "MID", "NOW", "NEXT"]} currentIdx={2} />
-        <Trajectory name="TRAJECTORY B" nodes={["START", "NOW", "NEXT"]} currentIdx={1} />
+        <Trajectory name="TRAJECTORY A" nodes={["START", "MID", "NOW", "NEXT"]} currentIdx={2} sessions={["WK1", "WK4", "WK7", "WK8"]} />
+        <Trajectory name="TRAJECTORY B" nodes={["START", "NOW", "NEXT"]} currentIdx={1} sessions={["WK1", "WK3", "WK4"]} />
       </div>
 
-      <div className="rounded-2xl border-l-4 border-urgent bg-urgent/5 px-8 py-8 flex items-center gap-8">
-        <div className="text-center">
-          <p className="text-urgent text-6xl font-bold leading-none">THU</p>
-          <p className="text-storm text-3xl font-semibold tabular-nums mt-2">14:00</p>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 rounded-2xl border-l-4 border-urgent bg-urgent/5 px-8 py-8 flex items-center gap-8">
+          <div className="text-center">
+            <p className="text-urgent text-6xl font-bold leading-none">THU</p>
+            <p className="text-storm text-3xl font-semibold tabular-nums mt-2">14:00</p>
+          </div>
+          <div className="h-20 w-px bg-marble/20" />
+          <div>
+            <p className="text-urgent text-[10px] uppercase tracking-[0.25em]">Next appointment</p>
+            <p className="text-storm text-lg font-medium mt-2">Drs. F. Visser · Trajectory A</p>
+            <p className="text-marble/50 text-sm mt-1">Praktijk Centrum West</p>
+          </div>
         </div>
-        <div className="h-20 w-px bg-marble/20" />
-        <div>
-          <p className="text-urgent text-[10px] uppercase tracking-[0.25em]">Next appointment</p>
-          <p className="text-storm text-lg font-medium mt-2">Drs. F. Visser · Trajectory A</p>
-          <p className="text-marble/50 text-sm mt-1">Praktijk Centrum West</p>
+        <div className="rounded-2xl border border-marble/15 bg-marble/5 p-5">
+          <p className="text-marble/50 text-[10px] uppercase tracking-[0.25em] mb-4">Upcoming</p>
+          <div className="flex flex-col gap-3">
+            {UPCOMING.map((u, i) => (
+              <div key={i} className="flex items-center justify-between">
+                <span className="text-storm text-sm font-medium">{u.d} · {u.t}</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full ${u.tr === "A" ? "bg-urgent/15 text-urgent" : "bg-sky/15 text-sky"}`}>TRJ {u.tr}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </PanelShell>
