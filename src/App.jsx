@@ -26,6 +26,15 @@ import DagelijkseBriefing from './pages/DagelijkseBriefing';
 import DoelenDashboard from './pages/DoelenDashboard';
 import VergaderNotities from './pages/VergaderNotities';
 import InspiratieBord from './pages/InspiratieBord';
+import SelfIndex from './pages/self/Index';
+import DailyStatePanel from './pages/self/DailyStatePanel';
+import RoutinesPanel from './pages/self/RoutinesPanel';
+import WakePanel from './pages/self/WakePanel';
+import TherapyPanel from './pages/self/TherapyPanel';
+import JournalPanel from './pages/self/JournalPanel';
+import DevelopmentPanel from './pages/self/DevelopmentPanel';
+import PersonalTimePanel from './pages/self/PersonalTimePanel';
+import InsightsPanel from './pages/self/InsightsPanel';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -73,6 +82,15 @@ const AuthenticatedApp = () => {
       <Route path="/doelen-dashboard" element={<DoelenDashboard />} />
       <Route path="/vergader-notities" element={<VergaderNotities />} />
       <Route path="/inspiratie-bord" element={<InspiratieBord />} />
+      <Route path="/self" element={<SelfIndex />} />
+      <Route path="/self/daily-state" element={<DailyStatePanel />} />
+      <Route path="/self/routines" element={<RoutinesPanel />} />
+      <Route path="/self/wake" element={<WakePanel />} />
+      <Route path="/self/therapy" element={<TherapyPanel />} />
+      <Route path="/self/journal" element={<JournalPanel />} />
+      <Route path="/self/development" element={<DevelopmentPanel />} />
+      <Route path="/self/personal-time" element={<PersonalTimePanel />} />
+      <Route path="/self/insights" element={<InsightsPanel />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
