@@ -15,10 +15,10 @@ const PANELS = [
 
 export default function SelfIndex() {
   return (
-    <div className="min-h-screen w-full bg-metal overflow-hidden relative">
+    <div className="h-[100dvh] w-full bg-metal overflow-hidden relative">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 16%, rgba(224,222,211,0.22) 0%, rgba(242,242,240,0.10) 28%, rgba(45,45,35,0) 60%)" }} />
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 py-10">
-        <div className="rounded-[28px] border border-marble/30 bg-marble/10 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.25)] p-6 sm:p-10">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 py-6 h-full">
+        <div className="rounded-[28px] border border-marble/30 bg-marble/10 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.25)] p-5 sm:p-8 h-full flex flex-col overflow-hidden">
           <div className="flex items-center justify-between mb-6">
             <span className="text-storm/60 text-[11px] uppercase tracking-[0.3em]">SELF — PANELS</span>
             <Link to="/" className="text-storm/60 hover:text-storm text-sm">← Terug</Link>
@@ -26,9 +26,9 @@ export default function SelfIndex() {
           <h1 className="text-storm text-2xl sm:text-3xl font-bold tracking-tight">SELF</h1>
           <p className="text-storm/60 text-sm mt-3 max-w-md">Acht panelen. Eén per SELF-widget. Help me understand and act.</p>
 
-          <div className="h-px bg-marble/20 my-8" />
+          <div className="h-px bg-marble/20 my-6" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 flex-1 content-center">
             {PANELS.map((p) => (
               <Link key={p.to} to={p.to} className="group rounded-2xl border border-marble/30 bg-marble/5 p-6 hover:bg-marble/10 transition-colors">
                 <div className="flex items-center justify-between">

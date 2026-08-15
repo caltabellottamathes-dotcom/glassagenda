@@ -12,10 +12,10 @@ function GraphicRule({ className = "" }) {
 
 export default function PanelShell({ index, section, statement, kicker, children, context = [], actions = [] }) {
   return (
-    <div className="min-h-screen w-full bg-metal overflow-hidden relative">
+    <div className="h-[100dvh] w-full bg-metal overflow-hidden relative">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 16%, rgba(224,222,211,0.22) 0%, rgba(242,242,240,0.10) 28%, rgba(45,45,35,0) 60%)" }} />
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 py-10">
-        <div className="rounded-[28px] border border-marble/30 bg-marble/10 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.25)] p-6 sm:p-10">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 py-6 h-full">
+        <div className="rounded-[28px] border border-marble/30 bg-marble/10 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.25)] p-5 sm:p-8 h-full flex flex-col overflow-hidden">
           <div className="flex items-start justify-between gap-6">
             <div className="flex items-baseline gap-5">
               <span className="text-storm/10 text-6xl font-bold leading-none tabular-nums select-none">{index}</span>
@@ -29,12 +29,12 @@ export default function PanelShell({ index, section, statement, kicker, children
             {kicker && <p className="text-storm/60 text-xs mt-2 tracking-[0.25em] uppercase">{kicker}</p>}
           </div>
 
-          <GraphicRule className="my-8" />
-          <div className="min-h-[280px]">{children}</div>
+          <GraphicRule className="my-6" />
+          <div className="flex-1 min-h-0 flex flex-col justify-center overflow-hidden">{children}</div>
 
           {context.length > 0 && (
             <>
-              <GraphicRule className="my-8" />
+              <GraphicRule className="my-6" />
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                 {context.map((c, i) => (
                   <div key={c.label}>
@@ -49,7 +49,7 @@ export default function PanelShell({ index, section, statement, kicker, children
             </>
           )}
 
-          <GraphicRule className="my-8" />
+          <GraphicRule className="my-6" />
           <div className="flex flex-wrap gap-2.5">
             {actions.map((a, i) => a.primary ? (
               <button key={i} className="px-6 py-3 rounded-full bg-plum text-storm text-xs font-semibold tracking-[0.15em] uppercase hover:brightness-125 active:scale-95 transition-all">{a.label}</button>
