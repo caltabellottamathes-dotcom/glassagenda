@@ -17,10 +17,10 @@ function Node({ n }) {
     right: "right-0 top-1/2 -translate-y-1/2",
   }[n.pos];
   return (
-    <div className={`absolute ${cls} w-32 text-center`}>
-      <div className="rounded-xl border border-marble/25 bg-marble/8 px-3 py-2">
-        <p className="text-storm text-sm font-medium">{n.label}</p>
-        <p className={`text-[9px] tracking-wider mt-0.5 ${tone[n.status]}`}>{n.status}</p>
+    <div className={`absolute ${cls} w-40 text-center`}>
+      <div className="rounded-2xl border border-marble/25 bg-marble/8 px-4 py-3">
+        <p className="text-storm text-base font-semibold">{n.label}</p>
+        <p className={`text-[10px] tracking-[0.2em] mt-1 ${tone[n.status]}`}>{n.status}</p>
       </div>
     </div>
   );
@@ -29,6 +29,7 @@ function Node({ n }) {
 export default function DevelopmentPanel() {
   return (
     <PanelShell
+      index="06"
       section="DEVELOPMENT · 04 ACTIVE AREAS"
       statement="04 ACTIVE AREAS"
       context={[
@@ -37,23 +38,33 @@ export default function DevelopmentPanel() {
         { label: "NEXT", text: "Volgende stap: afronding leerblok typografie." },
       ]}
       actions={[
-        { label: "ADD GOAL", primary: true },
-        { label: "RECORD PROGRESS" },
-        { label: "ADD LEARNING" },
-        { label: "OPEN DEVELOPMENT" },
+        { label: "Add Goal", primary: true },
+        { label: "Record Progress" },
+        { label: "Add Learning" },
+        { label: "Open Development" },
       ]}
     >
-      <div className="relative w-full max-w-lg mx-auto h-72">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 288" preserveAspectRatio="none">
-          <line x1="200" y1="40" x2="200" y2="144" stroke="rgba(224,222,211,0.25)" strokeWidth="1" />
-          <line x1="200" y1="144" x2="200" y2="248" stroke="rgba(224,222,211,0.25)" strokeWidth="1" />
-          <line x1="40" y1="144" x2="200" y2="144" stroke="rgba(224,222,211,0.25)" strokeWidth="1" />
-          <line x1="200" y1="144" x2="360" y2="144" stroke="rgba(224,222,211,0.25)" strokeWidth="1" />
+      <div className="relative w-full max-w-2xl mx-auto h-96">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 480 384" preserveAspectRatio="none">
+          <line x1="240" y1="48" x2="240" y2="192" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+          <line x1="240" y1="192" x2="240" y2="336" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+          <line x1="48" y1="192" x2="240" y2="192" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
+          <line x1="240" y1="192" x2="432" y2="192" stroke="rgba(224,222,211,0.25)" strokeWidth="2" />
         </svg>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <span className="block w-4 h-4 rounded-full bg-urgent shadow-[0_0_0_6px_rgba(213,226,74,0.15)]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+          <span className="block w-6 h-6 rounded-full bg-urgent shadow-[0_0_0_10px_rgba(213,226,74,0.15)]" />
+          <span className="text-marble/40 text-[9px] tracking-[0.2em] mt-3">NOW</span>
         </div>
         {NODES.map((n) => <Node key={n.label} n={n} />)}
+      </div>
+
+      <div className="flex justify-center gap-6 mt-4">
+        {Object.entries(tone).map(([k, v]) => (
+          <span key={k} className="flex items-center gap-2 text-[10px] tracking-wider uppercase">
+            <span className={`w-2.5 h-2.5 rounded-full ${k === "MOVING" ? "bg-urgent" : k === "ACTIVE" ? "bg-sky" : "bg-marble/40"}`} />
+            <span className={v}>{k}</span>
+          </span>
+        ))}
       </div>
     </PanelShell>
   );

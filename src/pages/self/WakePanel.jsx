@@ -1,14 +1,18 @@
 import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
-const PHASES = ["WAKE", "ORIENT", "ROUTINE", "GET UP"];
+const PHASES = [
+  { label: "WAKE", state: "DONE" },
+  { label: "ORIENT", state: "NOW" },
+  { label: "ROUTINE", state: "NEXT" },
+  { label: "GET UP", state: "—" },
+];
 
 export default function WakePanel() {
-  const r = 80;
-  const c = 2 * Math.PI * r;
-  const pct = 42;
+  const r = 96, c = 2 * Math.PI * r, pct = 42;
   return (
     <PanelShell
+      index="03"
       section="GOOD MORNING"
       statement="ORIENT"
       context={[
@@ -17,38 +21,40 @@ export default function WakePanel() {
         { label: "CURRENT STATE", text: "Orient fase loopt, 42% voltooid." },
       ]}
       actions={[
-        { label: "CONTINUE", primary: true },
-        { label: "SKIP PHASE" },
-        { label: "EXTEND" },
-        { label: "END WAKE MODE" },
-        { label: "OPEN WAKE" },
+        { label: "Continue", primary: true },
+        { label: "Skip Phase" },
+        { label: "Extend" },
+        { label: "End Wake Mode" },
+        { label: "Open Wake" },
       ]}
     >
       <div className="flex flex-col items-center">
-        <div className="relative w-48 h-48">
+        <div className="relative w-64 h-64">
           <svg className="w-full h-full -rotate-90" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r={r} fill="none" stroke="rgba(224,222,211,0.12)" strokeWidth="8" />
-            <circle cx="100" cy="100" r={r} fill="none" stroke="#d5e24a" strokeWidth="8" strokeLinecap="round"
-              strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
+            <circle cx="100" cy="100" r={r} fill="none" stroke="rgba(224,222,211,0.12)" strokeWidth="6" />
+            <circle cx="100" cy="100" r={r} fill="none" stroke="#d5e24a" strokeWidth="6" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-storm text-4xl font-bold tabular-nums">{pct}%</span>
-            <span className="text-marble/50 text-[10px] tracking-[0.2em] mt-1">ORIENT</span>
+            <span className="text-storm text-6xl font-bold tabular-nums leading-none">{pct}<span className="text-3xl">%</span></span>
+            <span className="text-urgent text-[11px] tracking-[0.3em] mt-3">ORIENT</span>
           </div>
         </div>
 
-        <div className="mt-10 w-full max-w-md">
-          <p className="text-marble/40 text-[10px] uppercase tracking-wider text-center mb-4">Phase progression</p>
+        <div className="mt-12 w-full max-w-xl">
           <div className="relative">
-            <div className="absolute top-1/2 left-3 right-3 h-px bg-marble/20" />
+            <div className="absolute top-4 left-6 right-6 h-1 rounded-full bg-marble/15" />
+            <div className="absolute top-4 left-6 h-1 rounded-full bg-urgent" style={{ width: "33%" }} />
             <div className="flex justify-between relative">
-              {PHASES.map((p, i) => {
-                const done = i < 1;
-                const current = i === 1;
+              {PHASES.map((p) => {
+                const done = p.state === "DONE";
+                const current = p.state === "NOW";
                 return (
-                  <div key={p} className="flex flex-col items-center gap-2 z-10">
-                    <span className={`w-4 h-4 rounded-full border-2 ${current ? "bg-urgent border-urgent animate-pulse" : done ? "bg-urgent border-urgent" : "bg-metal border-marble/40"}`} />
-                    <span className={`text-[10px] tracking-wider ${current ? "text-urgent" : done ? "text-marble/70" : "text-marble/40"}`}>{p}</span>
+                  <div key={p.label} className="flex flex-col items-center gap-3 z-10">
+                    <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${current ? "bg-urgent border-urgent animate-pulse shadow-[0_0_0_8px_rgba(213,226,74,0.15)]" : done ? "bg-urgent border-urgent" : "bg-metal border-marble/40"}`} />
+                    <div className="text-center">
+                      <p className={`text-sm font-semibold ${current ? "text-urgent" : done ? "text-storm" : "text-marble/60"}`}>{p.label}</p>
+                      <p className={`text-[9px] tracking-[0.2em] mt-1 ${current ? "text-urgent" : "text-marble/40"}`}>{p.state}</p>
+                    </div>
                   </div>
                 );
               })}
