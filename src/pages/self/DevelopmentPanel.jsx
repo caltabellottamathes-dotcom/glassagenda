@@ -7,8 +7,8 @@ const NODES = [
   { label: "PERSONAL", pos: "right", status: "STALLED", progress: 15, sub: "Ritmes · stil" },
   { label: "PRACTICE", pos: "bottom", status: "MOVING", progress: 72, sub: "Dagelijks schrijven" },
 ];
-const tone = { MOVING: "text-urgent", ACTIVE: "text-olive", STALLED: "text-storm/50" };
-const bar = { MOVING: "bg-urgent", ACTIVE: "bg-olive", STALLED: "bg-marble/30" };
+const tone = { MOVING: "text-plum", ACTIVE: "text-olive", STALLED: "text-storm/50" };
+const bar = { MOVING: "bg-plum", ACTIVE: "bg-olive", STALLED: "bg-marble/30" };
 
 function Node({ n }) {
   const cls = {
@@ -55,8 +55,8 @@ export default function DevelopmentPanel() {
           <line x1="240" y1="210" x2="240" y2="360" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
           <line x1="60" y1="210" x2="240" y2="210" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
           <line x1="240" y1="210" x2="420" y2="210" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
-          <circle cx="240" cy="210" r="44" fill="none" stroke="rgba(213,226,74,0.2)" strokeWidth="1" />
-          <circle cx="240" cy="210" r="60" fill="none" stroke="rgba(213,226,74,0.1)" strokeWidth="1" />
+          <circle cx="240" cy="210" r="44" fill="none" stroke="rgba(48,23,40,0.4)" strokeWidth="1" />
+          <circle cx="240" cy="210" r="60" fill="none" stroke="rgba(48,23,40,0.2)" strokeWidth="1" />
         </svg>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
           <span className="block w-7 h-7 rounded-full bg-urgent shadow-[0_0_0_12px_rgba(213,226,74,0.15)]" />

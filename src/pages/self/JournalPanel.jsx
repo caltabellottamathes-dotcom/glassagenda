@@ -1,7 +1,7 @@
 import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
-const OLIVE = "#d8dab3", URG = "#d5e24a";
+const PLUM = "#301728", URG = "#d5e24a", OLIVE = "#d8dab3";
 
 const MOMENTS = [
   { time: "07:20", label: "Wake", weight: "xs", tag: "RITUAL" },
@@ -48,7 +48,7 @@ export default function JournalPanel() {
           {MOMENTS.map((m, i) => (
             <div key={i} className="flex items-start gap-6 py-4 relative">
               <span className="w-20 text-storm text-base font-semibold tabular-nums text-right pt-1.5">{m.time}</span>
-              <span className={`z-10 mt-2 rounded-full ${dot[m.weight]} ${m.open ? "bg-urgent animate-pulse shadow-[0_0_0_6px_rgba(213,226,74,0.18)]" : "bg-olive"}`} />
+              <span className={`z-10 mt-2 rounded-full ${dot[m.weight]} ${m.open ? "bg-urgent animate-pulse shadow-[0_0_0_6px_rgba(213,226,74,0.18)]" : "bg-plum"}`} />
               <div className="flex-1">
                 <p className={size[m.weight]}>{m.label}</p>
                 {m.open && <div className="mt-3 h-px bg-urgent/40 w-44" />}
@@ -59,7 +59,7 @@ export default function JournalPanel() {
         </div>
 
         <div className="lg:border-l border-marble/20 lg:pl-8">
-          <p className="text-olive text-[10px] uppercase tracking-[0.25em] mb-4 font-semibold">Emerging</p>
+          <p className="text-storm/80 text-[10px] uppercase tracking-[0.25em] mb-4 font-semibold">Emerging</p>
           <div className="flex flex-wrap gap-2">
             {EMERGING.map((e, i) => (
               <span key={e} className={`text-sm px-3 py-1.5 rounded-full border ${i === 0 ? "bg-urgent/15 text-urgent border-urgent/40" : "bg-olive/15 text-olive border-olive/25"}`}>{e}</span>
@@ -69,7 +69,7 @@ export default function JournalPanel() {
             <p className="text-storm/50 text-[10px] uppercase tracking-[0.25em] mb-4">Magnitude</p>
             <div className="flex items-end gap-1.5 h-20">
               {MOMENTS.map((m, i) => (
-                <div key={i} className="flex-1 rounded-t" style={{ height: barH[m.weight], background: m.weight === "lg" ? URG : OLIVE }} />
+                <div key={i} className="flex-1 rounded-t" style={{ height: barH[m.weight], background: m.weight === "lg" ? URG : PLUM }} />
               ))}
             </div>
             <p className="text-storm/40 text-[9px] tracking-wider mt-2 text-center">over de dag</p>

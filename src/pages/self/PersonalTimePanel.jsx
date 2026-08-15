@@ -2,7 +2,7 @@ import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
 const ROWS = [
-  { label: "WORK", cells: 14, tone: "bg-olive", hrs: "8h 24m" },
+  { label: "WORK", cells: 14, tone: "bg-plum", hrs: "8h 24m" },
   { label: "PERSONAL", cells: 4, tone: "bg-urgent", hrs: "2h 24m" },
   { label: "APPOINTMENT", cells: 3, tone: "bg-marble/40", hrs: "1h 48m" },
   { label: "FREE", cells: 0, tone: "bg-marble/10", hrs: "—" },
@@ -10,7 +10,7 @@ const ROWS = [
 ];
 
 const COMP = [
-  { w: 14, c: "bg-olive" },
+  { w: 14, c: "bg-plum" },
   { w: 4, c: "bg-urgent" },
   { w: 3, c: "bg-marble/40" },
   { w: 9, c: "bg-marble/10" },
@@ -70,7 +70,7 @@ export default function PersonalTimePanel() {
       </div>
 
       <div className="flex flex-wrap gap-5 mt-6">
-        <span className="flex items-center gap-2 text-[10px] tracking-wider text-olive"><span className="w-3 h-3 rounded-sm bg-olive"/>WORK</span>
+        <span className="flex items-center gap-2 text-[10px] tracking-wider text-plum"><span className="w-3 h-3 rounded-sm bg-plum"/>WORK</span>
         <span className="flex items-center gap-2 text-[10px] tracking-wider text-urgent"><span className="w-3 h-3 rounded-sm bg-urgent"/>PERSONAL · PROTECTED</span>
         <span className="flex items-center gap-2 text-[10px] tracking-wider text-storm/70"><span className="w-3 h-3 rounded-sm bg-marble/40"/>APPOINTMENT</span>
         <span className="flex items-center gap-2 text-[10px] tracking-wider text-storm/40"><span className="w-3 h-3 rounded-sm border border-marble/30"/>FREE / REST</span>

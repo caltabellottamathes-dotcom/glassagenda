@@ -1,18 +1,18 @@
 import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
-const OLIVE = "#d8dab3", URG = "#d5e24a", STORM = "#F2F2F0";
+const PLUM = "#301728", URG = "#d5e24a", OLIVE = "#d8dab3", STORM = "#F2F2F0";
 
 const VALUES = [
-  { v: 72, l: "ENERGY", c: OLIVE, pts: "0,30 20,22 40,28 60,18 80,24 100,16" },
+  { v: 72, l: "ENERGY", c: PLUM, pts: "0,30 20,22 40,28 60,18 80,24 100,16" },
   { v: 58, l: "CAPACITY", c: URG, pts: "0,40 20,38 40,44 60,34 80,40 100,30" },
-  { v: 64, l: "MOOD", c: STORM, pts: "0,34 20,30 40,36 60,28 80,32 100,26" },
+  { v: 64, l: "MOOD", c: OLIVE, pts: "0,34 20,30 40,36 60,28 80,32 100,26" },
 ];
 
 const ARCS = [
-  { pct: 72, r: 100, c: OLIVE, label: "ENERGY" },
+  { pct: 72, r: 100, c: PLUM, label: "ENERGY" },
   { pct: 58, r: 78, c: URG, label: "CAPACITY" },
-  { pct: 64, r: 56, c: STORM, label: "MOOD" },
+  { pct: 64, r: 56, c: OLIVE, label: "MOOD" },
 ];
 const circ = (r) => 2 * Math.PI * r;
 
@@ -40,7 +40,7 @@ export default function DailyStatePanel() {
             <p className="text-storm text-6xl font-bold tabular-nums leading-none">{x.v}</p>
             <p className="text-[10px] tracking-[0.3em] mt-3" style={{ color: x.c }}>{x.l}</p>
             <svg viewBox="0 0 100 50" className="w-full h-10 mt-4" preserveAspectRatio="none">
-              <polyline points={x.pts} fill="none" stroke={x.c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <polyline points={x.pts} fill="none" stroke={x.c} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         ))}
@@ -70,12 +70,12 @@ export default function DailyStatePanel() {
             <text x="2" y="115" fill="rgba(255,255,255,0.45)" fontSize="9">MORNING</text>
             <defs>
               <linearGradient id="dsArea" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor={URG} stopOpacity="0.22" />
-                <stop offset="100%" stopColor={URG} stopOpacity="0" />
+                <stop offset="0%" stopColor={PLUM} stopOpacity="0.5" />
+                <stop offset="100%" stopColor={PLUM} stopOpacity="0" />
               </linearGradient>
             </defs>
             <path d="M0,120 C60,100 90,40 150,55 C200,67 230,23 290,40 C340,53 370,25 400,33 L400,170 L0,170 Z" fill="url(#dsArea)" />
-            <path d="M0,120 C60,100 90,40 150,55 C200,67 230,23 290,40 C340,53 370,25 400,33" fill="none" stroke={URG} strokeWidth="2.5" />
+            <path d="M0,120 C60,100 90,40 150,55 C200,67 230,23 290,40 C340,53 370,25 400,33" fill="none" stroke={PLUM} strokeWidth="2.5" />
             <circle cx="0" cy="120" r="5" fill={STORM} />
             <circle cx="400" cy="33" r="7" fill={URG} />
             <circle cx="400" cy="33" r="14" fill="none" stroke={URG} strokeWidth="1.5" opacity="0.5" />

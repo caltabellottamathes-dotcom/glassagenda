@@ -4,7 +4,7 @@ import PanelShell from "@/components/self/PanelShell";
 function Trajectory({ name, nodes, currentIdx, sessions }) {
   return (
     <div>
-      <p className="text-olive text-[10px] uppercase tracking-[0.25em] mb-5 font-semibold">{name}</p>
+      <p className="text-storm/80 text-[10px] uppercase tracking-[0.25em] mb-5 font-semibold">{name}</p>
       <div className="relative flex items-center justify-between px-4">
         <div className="absolute left-8 right-8 top-1/2 h-0.5 bg-marble/20 -translate-y-1/2" />
         {nodes.map((n, i) => {
@@ -12,7 +12,7 @@ function Trajectory({ name, nodes, currentIdx, sessions }) {
           const current = i === currentIdx;
           return (
             <div key={i} className="flex flex-col items-center gap-3 z-10">
-              <span className={`w-5 h-5 rounded-full border-2 ${current ? "bg-urgent border-urgent animate-pulse shadow-[0_0_0_7px_rgba(213,226,74,0.18)]" : done ? "bg-olive border-olive" : "bg-marble/10 border-marble/30"}`} />
+              <span className={`w-5 h-5 rounded-full border-2 ${current ? "bg-urgent border-urgent animate-pulse shadow-[0_0_0_7px_rgba(213,226,74,0.18)]" : done ? "bg-plum border-plum" : "bg-marble/10 border-marble/30"}`} />
               <span className={`text-[10px] tracking-wide ${current ? "text-urgent" : done ? "text-storm/70" : "text-storm/40"}`}>{n}</span>
             </div>
           );
@@ -73,7 +73,7 @@ export default function TherapyPanel() {
             {UPCOMING.map((u, i) => (
               <div key={i} className="flex items-center justify-between">
                 <span className="text-storm text-sm font-medium">{u.d} · {u.t}</span>
-                <span className={`text-[10px] px-2 py-0.5 rounded-full ${u.tr === "A" ? "bg-olive/15 text-olive" : "bg-marble/15 text-storm/70"}`}>TRJ {u.tr}</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full ${u.tr === "A" ? "bg-plum text-storm" : "bg-marble/15 text-storm/70"}`}>TRJ {u.tr}</span>
               </div>
             ))}
           </div>

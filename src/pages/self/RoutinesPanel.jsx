@@ -38,7 +38,7 @@ export default function RoutinesPanel() {
         <div className="relative w-32 h-32 shrink-0">
           <svg className="w-full h-full -rotate-90" viewBox="0 0 128 128">
             <circle cx="64" cy="64" r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="7" />
-            <circle cx="64" cy="64" r={r} fill="none" stroke="#d8dab3" strokeWidth="7" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
+            <circle cx="64" cy="64" r={r} fill="none" stroke="#301728" strokeWidth="7" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-storm text-2xl font-bold tabular-nums leading-none">3/5</span>
@@ -61,7 +61,7 @@ export default function RoutinesPanel() {
             {ROUTINES.map((rt, i) => (
               <div
                 key={rt.label}
-                className={`absolute h-7 rounded-lg flex items-center px-2 ${rt.current ? "bg-urgent text-plum animate-pulse shadow-[0_0_0_4px_rgba(213,226,74,0.18)]" : rt.done ? "bg-olive text-plum" : "bg-marble/10 text-storm/50 border border-marble/20"}`}
+                className={`absolute h-7 rounded-lg flex items-center px-2 ${rt.current ? "bg-urgent text-plum animate-pulse shadow-[0_0_0_4px_rgba(213,226,74,0.18)]" : rt.done ? "bg-plum text-storm" : "bg-marble/10 text-storm/50 border border-marble/20"}`}
                 style={{ left: `${toPct(rt.time)}%`, width: `${wPct(rt.dur)}%`, top: `${i * 12}px` }}
               >
                 <span className="text-[9px] font-medium tracking-wide truncate">{rt.label}</span>
@@ -70,7 +70,7 @@ export default function RoutinesPanel() {
           </div>
         </div>
         <div className="flex gap-4 mt-2 text-[10px] tracking-wider">
-          <span className="flex items-center gap-1.5 text-olive"><span className="w-2.5 h-2.5 rounded-sm bg-olive"/>DONE</span>
+          <span className="flex items-center gap-1.5 text-plum"><span className="w-2.5 h-2.5 rounded-sm bg-plum"/>DONE</span>
           <span className="flex items-center gap-1.5 text-urgent"><span className="w-2.5 h-2.5 rounded-sm bg-urgent"/>NOW</span>
           <span className="flex items-center gap-1.5 text-storm/50"><span className="w-2.5 h-2.5 rounded-sm border border-marble/30"/>UPCOMING</span>
         </div>

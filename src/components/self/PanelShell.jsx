@@ -5,7 +5,7 @@ function GraphicRule({ className = "" }) {
   return (
     <div className={`relative ${className}`}>
       <div className="h-px bg-marble/20" />
-      <div className="absolute left-0 top-0 h-px w-20 bg-olive" />
+      <div className="absolute left-0 top-0 h-px w-20 bg-plum" />
     </div>
   );
 }
@@ -26,7 +26,7 @@ export default function PanelShell({ index, section, statement, kicker, children
 
           <div className="mt-4">
             <h1 className="text-storm text-2xl sm:text-3xl font-bold tracking-tight">{statement}</h1>
-            {kicker && <p className="text-olive text-xs mt-2 tracking-[0.25em] uppercase">{kicker}</p>}
+            {kicker && <p className="text-storm/60 text-xs mt-2 tracking-[0.25em] uppercase">{kicker}</p>}
           </div>
 
           <GraphicRule className="my-8" />
@@ -40,7 +40,7 @@ export default function PanelShell({ index, section, statement, kicker, children
                   <div key={c.label}>
                     <div className="flex items-center gap-2.5">
                       <span className="text-storm/30 text-xs tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                      <p className="text-olive text-[10px] uppercase tracking-[0.2em] font-semibold">{c.label}</p>
+                      <p className="text-storm/80 text-[10px] uppercase tracking-[0.2em] font-semibold">{c.label}</p>
                     </div>
                     <p className="text-storm/70 text-sm mt-2 leading-relaxed">{c.text}</p>
                   </div>
@@ -54,7 +54,7 @@ export default function PanelShell({ index, section, statement, kicker, children
             {actions.map((a, i) => a.primary ? (
               <button key={i} className="px-6 py-3 rounded-full bg-plum text-storm text-xs font-semibold tracking-[0.15em] uppercase hover:brightness-125 active:scale-95 transition-all">{a.label}</button>
             ) : (
-              <button key={i} className="px-6 py-3 rounded-full border border-olive/30 bg-olive/5 text-olive text-xs tracking-[0.15em] uppercase hover:bg-olive/10 transition-colors">{a.label}</button>
+              <button key={i} className="px-6 py-3 rounded-full border border-storm/15 bg-marble/5 text-storm/80 text-xs tracking-[0.15em] uppercase hover:bg-marble/10 transition-colors">{a.label}</button>
             ))}
           </div>
         </div>

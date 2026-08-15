@@ -1,7 +1,7 @@
 import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
-const URG = "#d5e24a", OLIVE = "#d8dab3";
+const PLUM = "#301728", URG = "#d5e24a";
 
 const PHASES = [
   { label: "WAKE", state: "DONE" },
@@ -39,10 +39,10 @@ export default function WakePanel() {
     >
       <div className="flex flex-col items-center">
         <div className="relative w-72 h-72">
-          <div className="absolute inset-8 rounded-full" style={{ background: "rgba(213,226,74,0.08)", filter: "blur(28px)" }} />
+          <div className="absolute inset-8 rounded-full" style={{ background: "rgba(48,23,40,0.25)", filter: "blur(28px)" }} />
           <svg className="w-full h-full -rotate-90 relative" viewBox="0 0 200 200">
             <circle cx="100" cy="100" r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="6" />
-            <circle cx="100" cy="100" r={r} fill="none" stroke={URG} strokeWidth="6" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
+            <circle cx="100" cy="100" r={r} fill="none" stroke={PLUM} strokeWidth="6" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
             {[...Array(40)].map((_, i) => {
               const a = (i / 40) * 2 * Math.PI;
               return <line key={i} x1={100 + Math.cos(a) * 108} y1={100 + Math.sin(a) * 108} x2={100 + Math.cos(a) * 114} y2={100 + Math.sin(a) * 114} stroke="rgba(255,255,255,0.18)" strokeWidth="1" />;
@@ -57,14 +57,14 @@ export default function WakePanel() {
         <div className="mt-10 w-full max-w-xl">
           <div className="relative">
             <div className="absolute top-4 left-6 right-6 h-1 rounded-full bg-marble/15" />
-            <div className="absolute top-4 left-6 h-1 rounded-full bg-urgent" style={{ width: "33%" }} />
+            <div className="absolute top-4 left-6 h-1 rounded-full bg-plum" style={{ width: "33%" }} />
             <div className="flex justify-between relative">
               {PHASES.map((p) => {
                 const done = p.state === "DONE";
                 const current = p.state === "NOW";
                 return (
                   <div key={p.label} className="flex flex-col items-center gap-3 z-10">
-                    <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${current ? "bg-urgent border-urgent animate-pulse shadow-[0_0_0_8px_rgba(213,226,74,0.18)]" : done ? "bg-olive border-olive" : "bg-marble/10 border-marble/30"}`} />
+                    <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${current ? "bg-urgent border-urgent animate-pulse shadow-[0_0_0_8px_rgba(213,226,74,0.18)]" : done ? "bg-plum border-plum" : "bg-marble/10 border-marble/30"}`} />
                     <div className="text-center">
                       <p className={`text-sm font-semibold ${current ? "text-urgent" : done ? "text-storm" : "text-storm/60"}`}>{p.label}</p>
                       <p className={`text-[9px] tracking-[0.2em] mt-1 ${current ? "text-urgent" : "text-storm/40"}`}>{p.state}</p>
