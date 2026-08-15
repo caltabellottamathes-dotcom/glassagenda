@@ -1,16 +1,18 @@
 import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
+const PLUM = "#301728", OLIVE = "#d8dab3", URG = "#d5e24a";
+
 const VALUES = [
-  { v: 72, l: "ENERGY", c: "#d5e24a", pts: "0,30 20,22 40,28 60,18 80,24 100,16" },
-  { v: 58, l: "CAPACITY", c: "#B1BEC6", pts: "0,40 20,38 40,44 60,34 80,40 100,30" },
-  { v: 64, l: "MOOD", c: "#94925D", pts: "0,34 20,30 40,36 60,28 80,32 100,26" },
+  { v: 72, l: "ENERGY", c: PLUM, pts: "0,30 20,22 40,28 60,18 80,24 100,16" },
+  { v: 58, l: "CAPACITY", c: URG, pts: "0,40 20,38 40,44 60,34 80,40 100,30" },
+  { v: 64, l: "MOOD", c: OLIVE, pts: "0,34 20,30 40,36 60,28 80,32 100,26" },
 ];
 
 const ARCS = [
-  { pct: 72, r: 100, c: "#d5e24a", label: "ENERGY" },
-  { pct: 58, r: 78, c: "#B1BEC6", label: "CAPACITY" },
-  { pct: 64, r: 56, c: "#94925D", label: "MOOD" },
+  { pct: 72, r: 100, c: PLUM, label: "ENERGY" },
+  { pct: 58, r: 78, c: URG, label: "CAPACITY" },
+  { pct: 64, r: 56, c: OLIVE, label: "MOOD" },
 ];
 const circ = (r) => 2 * Math.PI * r;
 
@@ -32,10 +34,10 @@ export default function DailyStatePanel() {
         { label: "Open Daily State" },
       ]}
     >
-      <div className="grid grid-cols-3 divide-x divide-marble/20 border-y border-marble/20">
+      <div className="grid grid-cols-3 divide-x divide-plum/15 border-y border-plum/15">
         {VALUES.map((x) => (
           <div key={x.l} className="py-8 px-6">
-            <p className="text-storm text-6xl font-bold tabular-nums leading-none">{x.v}</p>
+            <p className="text-plum text-6xl font-bold tabular-nums leading-none">{x.v}</p>
             <p className="text-[10px] tracking-[0.3em] mt-3" style={{ color: x.c }}>{x.l}</p>
             <svg viewBox="0 0 100 50" className="w-full h-10 mt-4" preserveAspectRatio="none">
               <polyline points={x.pts} fill="none" stroke={x.c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -49,38 +51,37 @@ export default function DailyStatePanel() {
           <svg className="w-full h-full -rotate-90" viewBox="0 0 240 240">
             {ARCS.map((a) => (
               <g key={a.label}>
-                <circle cx="120" cy="120" r={a.r} fill="none" stroke="rgba(224,222,211,0.1)" strokeWidth="10" />
-                <circle cx="120" cy="120" r={a.r} fill="none" stroke={a.c} strokeWidth="10" strokeLinecap="round"
-                  strokeDasharray={circ(a.r)} strokeDashoffset={circ(a.r) - (a.pct / 100) * circ(a.r)} />
+                <circle cx="120" cy="120" r={a.r} fill="none" stroke="rgba(48,23,40,0.08)" strokeWidth="10" />
+                <circle cx="120" cy="120" r={a.r} fill="none" stroke={a.c} strokeWidth="10" strokeLinecap="round" strokeDasharray={circ(a.r)} strokeDashoffset={circ(a.r) - (a.pct / 100) * circ(a.r)} />
               </g>
             ))}
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-storm text-3xl font-bold">STEADY</span>
-            <span className="text-marble/50 text-[10px] tracking-[0.25em] mt-1">STATE FIELD</span>
+            <span className="text-plum text-3xl font-bold">STEADY</span>
+            <span className="text-plum/50 text-[10px] tracking-[0.25em] mt-1">STATE FIELD</span>
           </div>
         </div>
 
         <div className="flex-1 w-full">
-          <p className="text-marble/50 text-[10px] uppercase tracking-[0.25em] mb-4">Change · morning → now</p>
+          <p className="text-plum/50 text-[10px] uppercase tracking-[0.25em] mb-4">Change · morning → now</p>
           <svg viewBox="0 0 400 170" className="w-full h-44" preserveAspectRatio="none">
-            {[0, 1, 2, 3].map((i) => <line key={i} x1="0" y1={i * 40 + 10} x2="400" y2={i * 40 + 10} stroke="rgba(224,222,211,0.08)" />)}
-            <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(224,222,211,0.3)" strokeWidth="1" strokeDasharray="4 4" />
-            <text x="2" y="115" fill="rgba(224,222,211,0.4)" fontSize="9">MORNING</text>
+            {[0, 1, 2, 3].map((i) => <line key={i} x1="0" y1={i * 40 + 10} x2="400" y2={i * 40 + 10} stroke="rgba(48,23,40,0.06)" />)}
+            <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(48,23,40,0.25)" strokeWidth="1" strokeDasharray="4 4" />
+            <text x="2" y="115" fill="rgba(48,23,40,0.45)" fontSize="9">MORNING</text>
             <defs>
               <linearGradient id="dsArea" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#d5e24a" stopOpacity="0.28" />
-                <stop offset="100%" stopColor="#d5e24a" stopOpacity="0" />
+                <stop offset="0%" stopColor={PLUM} stopOpacity="0.2" />
+                <stop offset="100%" stopColor={PLUM} stopOpacity="0" />
               </linearGradient>
             </defs>
             <path d="M0,120 C60,100 90,40 150,55 C200,67 230,23 290,40 C340,53 370,25 400,33 L400,170 L0,170 Z" fill="url(#dsArea)" />
-            <path d="M0,120 C60,100 90,40 150,55 C200,67 230,23 290,40 C340,53 370,25 400,33" fill="none" stroke="#E0DED3" strokeWidth="2.5" />
-            <circle cx="0" cy="120" r="5" fill="#B1BEC6" />
-            <circle cx="400" cy="33" r="7" fill="#d5e24a" />
-            <circle cx="400" cy="33" r="14" fill="none" stroke="#d5e24a" strokeWidth="1.5" opacity="0.5" />
+            <path d="M0,120 C60,100 90,40 150,55 C200,67 230,23 290,40 C340,53 370,25 400,33" fill="none" stroke={PLUM} strokeWidth="2.5" />
+            <circle cx="0" cy="120" r="5" fill={OLIVE} />
+            <circle cx="400" cy="33" r="7" fill={PLUM} />
+            <circle cx="400" cy="33" r="14" fill="none" stroke={PLUM} strokeWidth="1.5" opacity="0.5" />
           </svg>
-          <div className="flex justify-between text-marble/40 text-[10px] tracking-[0.25em] mt-2">
-            <span>06:00</span><span>10:00</span><span>14:00</span><span className="text-urgent">NOW</span>
+          <div className="flex justify-between text-plum/40 text-[10px] tracking-[0.25em] mt-2">
+            <span>06:00</span><span>10:00</span><span>14:00</span><span className="text-plum">NOW</span>
           </div>
         </div>
       </div>
@@ -89,7 +90,7 @@ export default function DailyStatePanel() {
         {ARCS.map((a) => (
           <div key={a.label} className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full" style={{ background: a.c }} />
-            <span className="text-marble/70 text-xs tracking-wide">{a.label} · {a.pct}</span>
+            <span className="text-plum/70 text-xs tracking-wide">{a.label} · {a.pct}</span>
           </div>
         ))}
       </div>

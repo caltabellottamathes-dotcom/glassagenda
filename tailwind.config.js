@@ -50,6 +50,10 @@ module.exports = {
   			marble: 'hsl(var(--marble))',
   			storm: 'hsl(var(--storm))',
   			urgent: 'hsl(var(--urgent))',
+  			plum: 'hsl(var(--plum))',
+  			olive: 'hsl(var(--olive))',
+  			selfbg: 'hsl(var(--selfbg))',
+  			selfpanel: 'hsl(var(--selfpanel))',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',

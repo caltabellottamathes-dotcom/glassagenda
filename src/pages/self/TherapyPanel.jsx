@@ -4,21 +4,21 @@ import PanelShell from "@/components/self/PanelShell";
 function Trajectory({ name, nodes, currentIdx, sessions }) {
   return (
     <div>
-      <p className="text-urgent text-[10px] uppercase tracking-[0.25em] mb-5">{name}</p>
+      <p className="text-plum text-[10px] uppercase tracking-[0.25em] mb-5 font-semibold">{name}</p>
       <div className="relative flex items-center justify-between px-4">
-        <div className="absolute left-8 right-8 top-1/2 h-0.5 bg-marble/20 -translate-y-1/2" />
+        <div className="absolute left-8 right-8 top-1/2 h-0.5 bg-plum/20 -translate-y-1/2" />
         {nodes.map((n, i) => {
           const done = i < currentIdx;
           const current = i === currentIdx;
           return (
             <div key={i} className="flex flex-col items-center gap-3 z-10">
-              <span className={`w-5 h-5 rounded-full border-2 ${current ? "bg-urgent border-urgent animate-pulse shadow-[0_0_0_7px_rgba(213,226,74,0.15)]" : done ? "bg-urgent border-urgent" : "bg-metal border-marble/40"}`} />
-              <span className={`text-[10px] tracking-wide ${current ? "text-urgent" : done ? "text-marble/70" : "text-marble/40"}`}>{n}</span>
+              <span className={`w-5 h-5 rounded-full border-2 ${current ? "bg-plum border-plum animate-pulse shadow-[0_0_0_7px_rgba(48,23,40,0.12)]" : done ? "bg-olive border-plum/30" : "bg-selfpanel border-plum/40"}`} />
+              <span className={`text-[10px] tracking-wide ${current ? "text-plum" : done ? "text-plum/70" : "text-plum/40"}`}>{n}</span>
             </div>
           );
         })}
       </div>
-      <div className="flex justify-between mt-3 text-marble/40 text-[9px] tracking-wider px-4">
+      <div className="flex justify-between mt-3 text-plum/40 text-[9px] tracking-wider px-4">
         {sessions.map((s, i) => <span key={i}>{s}</span>)}
       </div>
     </div>
@@ -55,25 +55,25 @@ export default function TherapyPanel() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 rounded-2xl border-l-4 border-urgent bg-urgent/5 px-8 py-8 flex items-center gap-8">
+        <div className="lg:col-span-2 rounded-2xl border-l-4 border-plum bg-plum/5 px-8 py-8 flex items-center gap-8">
           <div className="text-center">
-            <p className="text-urgent text-6xl font-bold leading-none">THU</p>
-            <p className="text-storm text-3xl font-semibold tabular-nums mt-2">14:00</p>
+            <p className="text-plum text-6xl font-bold leading-none">THU</p>
+            <p className="text-plum text-3xl font-semibold tabular-nums mt-2">14:00</p>
           </div>
-          <div className="h-20 w-px bg-marble/20" />
+          <div className="h-20 w-px bg-plum/20" />
           <div>
-            <p className="text-urgent text-[10px] uppercase tracking-[0.25em]">Next appointment</p>
-            <p className="text-storm text-lg font-medium mt-2">Drs. F. Visser · Trajectory A</p>
-            <p className="text-marble/50 text-sm mt-1">Praktijk Centrum West</p>
+            <p className="text-plum text-[10px] uppercase tracking-[0.25em]">Next appointment</p>
+            <p className="text-plum text-lg font-medium mt-2">Drs. F. Visser · Trajectory A</p>
+            <p className="text-plum/50 text-sm mt-1">Praktijk Centrum West</p>
           </div>
         </div>
-        <div className="rounded-2xl border border-marble/15 bg-marble/5 p-5">
-          <p className="text-marble/50 text-[10px] uppercase tracking-[0.25em] mb-4">Upcoming</p>
+        <div className="rounded-2xl border border-plum/15 bg-plum/5 p-5">
+          <p className="text-plum/50 text-[10px] uppercase tracking-[0.25em] mb-4">Upcoming</p>
           <div className="flex flex-col gap-3">
             {UPCOMING.map((u, i) => (
               <div key={i} className="flex items-center justify-between">
-                <span className="text-storm text-sm font-medium">{u.d} · {u.t}</span>
-                <span className={`text-[10px] px-2 py-0.5 rounded-full ${u.tr === "A" ? "bg-urgent/15 text-urgent" : "bg-sky/15 text-sky"}`}>TRJ {u.tr}</span>
+                <span className="text-plum text-sm font-medium">{u.d} · {u.t}</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full ${u.tr === "A" ? "bg-plum/15 text-plum" : "bg-olive/50 text-plum"}`}>TRJ {u.tr}</span>
               </div>
             ))}
           </div>

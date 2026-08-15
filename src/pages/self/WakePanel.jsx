@@ -1,6 +1,8 @@
 import React from "react";
 import PanelShell from "@/components/self/PanelShell";
 
+const PLUM = "#301728", OLIVE = "#d8dab3";
+
 const PHASES = [
   { label: "WAKE", state: "DONE" },
   { label: "ORIENT", state: "NOW" },
@@ -37,35 +39,35 @@ export default function WakePanel() {
     >
       <div className="flex flex-col items-center">
         <div className="relative w-72 h-72">
-          <div className="absolute inset-8 rounded-full bg-urgent/10 blur-2xl" />
+          <div className="absolute inset-8 rounded-full" style={{ background: "rgba(48,23,40,0.06)", filter: "blur(28px)" }} />
           <svg className="w-full h-full -rotate-90 relative" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r={r} fill="none" stroke="rgba(224,222,211,0.12)" strokeWidth="6" />
-            <circle cx="100" cy="100" r={r} fill="none" stroke="#d5e24a" strokeWidth="6" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
+            <circle cx="100" cy="100" r={r} fill="none" stroke="rgba(48,23,40,0.1)" strokeWidth="6" />
+            <circle cx="100" cy="100" r={r} fill="none" stroke={PLUM} strokeWidth="6" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c - (pct / 100) * c} />
             {[...Array(40)].map((_, i) => {
               const a = (i / 40) * 2 * Math.PI;
-              return <line key={i} x1={100 + Math.cos(a) * 108} y1={100 + Math.sin(a) * 108} x2={100 + Math.cos(a) * 114} y2={100 + Math.sin(a) * 114} stroke="rgba(224,222,211,0.18)" strokeWidth="1" />;
+              return <line key={i} x1={100 + Math.cos(a) * 108} y1={100 + Math.sin(a) * 108} x2={100 + Math.cos(a) * 114} y2={100 + Math.sin(a) * 114} stroke="rgba(48,23,40,0.18)" strokeWidth="1" />;
             })}
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-storm text-6xl font-bold tabular-nums leading-none">{pct}<span className="text-3xl">%</span></span>
-            <span className="text-urgent text-[11px] tracking-[0.3em] mt-3">ORIENT</span>
+            <span className="text-plum text-6xl font-bold tabular-nums leading-none">{pct}<span className="text-3xl">%</span></span>
+            <span className="text-plum text-[11px] tracking-[0.3em] mt-3">ORIENT</span>
           </div>
         </div>
 
         <div className="mt-10 w-full max-w-xl">
           <div className="relative">
-            <div className="absolute top-4 left-6 right-6 h-1 rounded-full bg-marble/15" />
-            <div className="absolute top-4 left-6 h-1 rounded-full bg-urgent" style={{ width: "33%" }} />
+            <div className="absolute top-4 left-6 right-6 h-1 rounded-full bg-plum/15" />
+            <div className="absolute top-4 left-6 h-1 rounded-full bg-plum" style={{ width: "33%" }} />
             <div className="flex justify-between relative">
               {PHASES.map((p) => {
                 const done = p.state === "DONE";
                 const current = p.state === "NOW";
                 return (
                   <div key={p.label} className="flex flex-col items-center gap-3 z-10">
-                    <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${current ? "bg-urgent border-urgent animate-pulse shadow-[0_0_0_8px_rgba(213,226,74,0.15)]" : done ? "bg-urgent border-urgent" : "bg-metal border-marble/40"}`} />
+                    <span className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${current ? "bg-plum border-plum animate-pulse shadow-[0_0_0_8px_rgba(48,23,40,0.12)]" : done ? "bg-olive border-plum/30" : "bg-selfpanel border-plum/40"}`} />
                     <div className="text-center">
-                      <p className={`text-sm font-semibold ${current ? "text-urgent" : done ? "text-storm" : "text-marble/60"}`}>{p.label}</p>
-                      <p className={`text-[9px] tracking-[0.2em] mt-1 ${current ? "text-urgent" : "text-marble/40"}`}>{p.state}</p>
+                      <p className={`text-sm font-semibold ${current ? "text-plum" : done ? "text-plum" : "text-plum/60"}`}>{p.label}</p>
+                      <p className={`text-[9px] tracking-[0.2em] mt-1 ${current ? "text-plum" : "text-plum/40"}`}>{p.state}</p>
                     </div>
                   </div>
                 );
@@ -76,9 +78,9 @@ export default function WakePanel() {
 
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl">
           {METRICS.map((m) => (
-            <div key={m.l} className="rounded-2xl border border-marble/20 bg-marble/5 p-4 text-center">
-              <p className="text-storm text-xl font-semibold tabular-nums">{m.v}</p>
-              <p className="text-marble/50 text-[9px] tracking-[0.2em] mt-1.5">{m.l}</p>
+            <div key={m.l} className="rounded-2xl border border-plum/15 bg-plum/5 p-4 text-center">
+              <p className="text-plum text-xl font-semibold tabular-nums">{m.v}</p>
+              <p className="text-plum/50 text-[9px] tracking-[0.2em] mt-1.5">{m.l}</p>
             </div>
           ))}
         </div>
