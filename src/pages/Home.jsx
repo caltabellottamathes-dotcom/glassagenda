@@ -74,6 +74,10 @@ const NAV = [
   { to: "/takenoverzicht", label: "Taken" },
   { to: "/statistieken", label: "Statistieken" },
   { to: "/agenda-overzicht", label: "Agenda" },
+  { to: "/taken", label: "Taken" },
+  { to: "/email", label: "Email" },
+  { to: "/notifications", label: "Notificaties" },
+  { to: "/approvals", label: "Goedkeuringen" },
 ];
 
 export default function Home() {
