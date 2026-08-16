@@ -39,6 +39,15 @@ import Taken from './pages/modules/Taken';
 import Email from './pages/modules/Email';
 import Notifications from './pages/modules/Notifications';
 import Approvals from './pages/modules/Approvals';
+import DocumentsPreview from './pages/modules/DocumentsPreview';
+import KnowledgePreview from './pages/modules/KnowledgePreview';
+import PeoplePreview from './pages/modules/PeoplePreview';
+import ProjectAddPanel from './pages/modules/ProjectAddPanel';
+import TaskArchivePreview from './pages/modules/TaskArchivePreview';
+import TaskDetailPreview from './pages/modules/TaskDetailPreview';
+import TimeTrackerPreview from './pages/modules/TimeTrackerPreview';
+import WeekView from './pages/modules/WeekView';
+import WhatsAppPreview from './pages/modules/WhatsAppPreview';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -99,6 +108,15 @@ const AuthenticatedApp = () => {
       <Route path="/email" element={<Email />} />
       <Route path="/notifications" element={<Notifications />} />
       <Route path="/approvals" element={<Approvals />} />
+      <Route path="/documents" element={<DocumentsPreview />} />
+      <Route path="/knowledge" element={<KnowledgePreview />} />
+      <Route path="/people" element={<PeoplePreview />} />
+      <Route path="/project-add" element={<ProjectAddPanel />} />
+      <Route path="/task-archive" element={<TaskArchivePreview />} />
+      <Route path="/task-detail" element={<TaskDetailPreview />} />
+      <Route path="/time-tracker" element={<TimeTrackerPreview />} />
+      <Route path="/week" element={<WeekView />} />
+      <Route path="/whatsapp" element={<WhatsAppPreview />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

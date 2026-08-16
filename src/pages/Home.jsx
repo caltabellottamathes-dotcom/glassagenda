@@ -78,6 +78,15 @@ const NAV = [
   { to: "/email", label: "Email" },
   { to: "/notifications", label: "Notificaties" },
   { to: "/approvals", label: "Goedkeuringen" },
+  { to: "/documents", label: "Documenten" },
+  { to: "/knowledge", label: "Kennis" },
+  { to: "/people", label: "Mensen" },
+  { to: "/project-add", label: "Nieuw Project" },
+  { to: "/task-archive", label: "Archief" },
+  { to: "/task-detail", label: "Taakdetail" },
+  { to: "/time-tracker", label: "Tijd" },
+  { to: "/week", label: "Week" },
+  { to: "/whatsapp", label: "WhatsApp" },
 ];
 
 export default function Home() {
