@@ -76,7 +76,12 @@ export function DevelopmentWidget() {
 export function PersonalTimeWidget() {
   return (
     <Widget index="07" title="Personal Time" to="/self/personal-time" seed="self-time" size="wide" tint="linear-gradient(90deg, rgba(48,23,40,0.85), rgba(48,23,40,0.55))">
-      <div className="flex items-center gap-3"><Num v="2.5u" className="text-3xl" /><span className="text-storm/60 text-[10px] leading-tight">vrije tijd<br />vandaag</span><div className="ml-auto"><MiniBars data={[5, 3, 2, 4, 3]} color="#d8dab3" h={28} /></div></div>
+      <div className="flex flex-col gap-1.5">
+        <div className="flex h-7 rounded-lg overflow-hidden border border-white/10">
+          {[["#94925d", 40], ["#6b6a4a", 25], ["#d8dab3", 15], ["#ffffff15", 20]].map(([c, w], i) => <div key={i} style={{ width: `${w}%`, background: c }} />)}
+        </div>
+        <div className="flex justify-between text-[9px] text-storm/60"><span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-sand" />werk 40%</span><span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm" style={{ background: "#d8dab3" }} />vrij 15%</span><span className="text-urgent font-bold">2.5u vrij</span></div>
+      </div>
     </Widget>
   );
 }

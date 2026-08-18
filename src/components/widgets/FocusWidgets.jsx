@@ -8,6 +8,9 @@ export function FocusActivityWidget() {
       <div className="flex items-center gap-3">
         <Num v="18" className="text-3xl" />
         <span className="text-storm/60 text-[10px] leading-tight">work events<br />3 ongelezen</span>
+        <div className="flex gap-1 ml-1">
+          {["#94925d", "#d8dab3", "#6b6a4a", "#d5e24a"].map((c, i) => <span key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />)}
+        </div>
         <div className="ml-auto"><MiniLive color="#d5e24a" w={90} h={26} max={8} /></div>
       </div>
     </Widget>
@@ -46,7 +49,16 @@ export function DocumentsWidget() {
 export function EmailWidget() {
   return (
     <Widget index="04" title="Email" to="/email" seed="focus-email" size="wide" tint="linear-gradient(90deg, rgba(48,23,40,0.85), rgba(48,23,40,0.55))">
-      <div className="flex items-center gap-3"><Num v="12" className="text-3xl" suffix=" ongelezen" /><div className="ml-auto"><MiniLive color="#d5e24a" w={100} h={26} max={10} /></div></div>
+      <div className="flex flex-col gap-1">
+        {[["F. de Boer", "Q3 data klaar?", true], ["Giulia", "Agenda bijgewerkt", false], ["S. Kaya", "Pitch review", true]].map(([f, s, u], i) => (
+          <div key={i} className="flex items-center gap-2">
+            <span className="w-6 h-6 rounded-full bg-plum/50 text-storm text-[9px] font-bold flex items-center justify-center shrink-0">{f[0]}</span>
+            <span className="text-storm text-[11px] truncate w-20 shrink-0">{f}</span>
+            <span className="text-storm/50 text-[10px] truncate flex-1">{s}</span>
+            {u && <span className="w-1.5 h-1.5 rounded-full bg-urgent shrink-0" />}
+          </div>
+        ))}
+      </div>
     </Widget>
   );
 }
@@ -97,7 +109,10 @@ export function ProjectsWidget() {
 export function TaskArchiveWidget() {
   return (
     <Widget index="08" title="Task Archive" to="/task-archive" seed="focus-archive" size="mid">
-      <div className="flex items-center gap-3"><Num v="214" className="text-3xl" /><span className="text-storm/60 text-[10px] leading-tight">voltooid<br />deze maand</span><div className="ml-auto"><MiniLive color="#94925d" w={90} h={26} max={8} /></div></div>
+      <div className="flex flex-wrap gap-1.5">
+        {["Markt Q2", "Pitch deck", "Onboarding", "Logo v2", "FAQ"].map(n => <span key={n} className="text-[10px] px-2 py-1 rounded-full border border-white/10 bg-white/5 text-storm/60 line-through">{n}</span>)}
+      </div>
+      <div className="flex items-center gap-2"><span className="text-storm/60 text-[10px]">214 voltooid</span><div className="ml-auto"><MiniLive color="#94925d" w={70} h={20} max={8} /></div></div>
     </Widget>
   );
 }
@@ -122,7 +137,14 @@ export function TasksWidget() {
 export function TimeTrackerWidget() {
   return (
     <Widget index="11" title="Time Tracker" to="/time-tracker" seed="focus-time" size="tall" tint="linear-gradient(180deg, rgba(48,23,40,0.3), rgba(48,23,40,0.85))">
-      <div className="flex flex-col items-center gap-2"><MiniRing pct={81} size={96} stroke={7} color="#94925d" label="6.5u" /><span className="text-storm/60 text-[10px]">vandaag gelogd</span><div className="w-full"><MiniLive color="#d8dab3" w={140} h={24} max={10} /></div></div>
+      <div className="flex flex-col gap-2">
+        <span className="text-storm text-2xl font-bold tabular-nums">6.5u</span>
+        <span className="text-storm/60 text-[10px] -mt-1">vandaag gelogd</span>
+        <div className="flex items-end gap-0.5 h-16 mt-1">
+          {[0, 0, 2, 3, 1.5, 0, 1, 2.5, 0, 1, 0].map((v, i) => <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${v ? (v / 3) * 100 : 8}%`, background: v ? "#94925d" : "#ffffff10" }} />)}
+        </div>
+        <div className="flex justify-between text-[8px] text-storm/40"><span>08</span><span>12</span><span>16</span><span>18</span></div>
+      </div>
     </Widget>
   );
 }

@@ -7,6 +7,9 @@ export function ActivityWidget() {
       <div className="flex items-center gap-3">
         <Num v="24" className="text-3xl" />
         <span className="text-storm/60 text-[10px] leading-tight">events vandaag<br />6 ongelezen</span>
+        <div className="flex gap-1 ml-1">
+          {["#94925d", "#d8dab3", "#6b6a4a", "#d5e24a"].map((c, i) => <span key={i} className="w-2 h-2 rounded-full" style={{ background: c }} />)}
+        </div>
         <div className="ml-auto"><MiniLive color="#d5e24a" w={90} h={26} max={8} /></div>
       </div>
     </Widget>
@@ -64,9 +67,11 @@ export function InsightsWidget() {
   return (
     <Widget index="05" title="Insights" to="/giulia/insights" seed="giulia-insights" size="wide">
       <div className="flex items-center gap-3">
-        <Num v="3" className="text-2xl" suffix=" inzichten" />
-        <span className="text-storm/50 text-[10px]">avg 79% zeker</span>
-        <div className="ml-auto"><MiniLive color="#94925d" w={100} h={26} max={10} /></div>
+        <div className="flex items-end gap-1.5">
+          {[88, 74, 91, 62].map((v, i) => <span key={i} className="rounded-full bg-sand" style={{ width: 6 + v / 8, height: 6 + v / 8, opacity: 0.9 }} />)}
+        </div>
+        <span className="text-storm/60 text-[10px] leading-tight">4 inzichten<br />avg 79%</span>
+        <div className="ml-auto"><MiniLive color="#d5e24a" w={100} h={26} max={10} /></div>
       </div>
     </Widget>
   );

@@ -56,6 +56,7 @@ function MiniCalendar() {
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/widgets", label: "Widgets" },
+  { to: "/life-gallery", label: "LIFE Galerij" },
   { to: "/giulia", label: "GIULIA" },
   { to: "/focus", label: "FOCUS" },
   { to: "/life", label: "LIFE" },
