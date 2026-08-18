@@ -49,6 +49,25 @@ import TaskDetailPreview from './pages/modules/TaskDetailPreview';
 import TimeTrackerPreview from './pages/modules/TimeTrackerPreview';
 import WeekView from './pages/modules/WeekView';
 import WhatsAppPreview from './pages/modules/WhatsAppPreview';
+import GiuliaIndex from './pages/giulia/Index';
+import ActivityPreview from './pages/giulia/ActivityPreview';
+import AgentsPreview from './pages/giulia/AgentsPreview';
+import DayView from './pages/giulia/DayView';
+import InsightsPreview from './pages/giulia/InsightsPreview';
+import JeDagPreview from './pages/giulia/JeDagPreview';
+import MemoryPreview from './pages/giulia/MemoryPreview';
+import QuestionsPreview from './pages/giulia/QuestionsPreview';
+import ChatVoiceCall from './pages/giulia/ChatVoiceCall';
+import ChatWindow from './pages/giulia/ChatWindow';
+import FocusIndex from './pages/focus/Index';
+import AgendaPreview from './pages/focus/AgendaPreview';
+import ProjectsPreview from './pages/focus/ProjectsPreview';
+import LifeIndex from './pages/life/Index';
+import HobbiesPreview from './pages/life/HobbiesPreview';
+import HouseholdPreview from './pages/life/HouseholdPreview';
+import PersonalAdminPreview from './pages/life/PersonalAdminPreview';
+import SocialPlannerPreview from './pages/life/SocialPlannerPreview';
+import SocialPulsePreview from './pages/life/SocialPulsePreview';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -119,6 +138,26 @@ const AuthenticatedApp = () => {
       <Route path="/time-tracker" element={<TimeTrackerPreview />} />
       <Route path="/week" element={<WeekView />} />
       <Route path="/whatsapp" element={<WhatsAppPreview />} />
+      <Route path="/giulia" element={<GiuliaIndex />} />
+      <Route path="/giulia/activity" element={<ActivityPreview />} />
+      <Route path="/giulia/agents" element={<AgentsPreview />} />
+      <Route path="/giulia/day" element={<DayView />} />
+      <Route path="/giulia/insights" element={<InsightsPreview />} />
+      <Route path="/giulia/jedag" element={<JeDagPreview />} />
+      <Route path="/giulia/memory" element={<MemoryPreview />} />
+      <Route path="/giulia/questions" element={<QuestionsPreview />} />
+      <Route path="/giulia/voice" element={<ChatVoiceCall />} />
+      <Route path="/giulia/chat" element={<ChatWindow />} />
+      <Route path="/focus" element={<FocusIndex />} />
+      <Route path="/focus/activity" element={<ActivityPreview />} />
+      <Route path="/focus/agenda" element={<AgendaPreview />} />
+      <Route path="/focus/projects" element={<ProjectsPreview />} />
+      <Route path="/life" element={<LifeIndex />} />
+      <Route path="/life/hobbies" element={<HobbiesPreview />} />
+      <Route path="/life/household" element={<HouseholdPreview />} />
+      <Route path="/life/admin" element={<PersonalAdminPreview />} />
+      <Route path="/life/social-planner" element={<SocialPlannerPreview />} />
+      <Route path="/life/social-pulse" element={<SocialPulsePreview />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
