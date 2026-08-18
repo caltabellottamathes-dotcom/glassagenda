@@ -30,7 +30,15 @@ export function AgendaWidget() {
 export function DocumentsWidget() {
   return (
     <Widget index="03" title="Documents" to="/documents" seed="focus-docs" size="card">
-      <div className="flex items-center gap-3"><Num v="128" className="text-3xl" /><span className="text-storm/60 text-[10px] leading-tight">documenten<br />12 nieuw</span><div className="ml-auto"><MiniBars data={[3, 5, 4, 7, 6, 8]} color="#94925d" h={28} /></div></div>
+      <div className="flex flex-col gap-1.5">
+        {["Marktanalyse v3.pdf", "Concept Brons.pdf", "Briefing 18 aug.docx"].map(n => (
+          <div key={n} className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5">
+            <span className="w-5 h-6 rounded-sm bg-sand/30 border border-sand/40 shrink-0" />
+            <span className="text-storm text-[11px] truncate flex-1">{n}</span>
+          </div>
+        ))}
+      </div>
+      <p className="text-storm/60 text-[10px]">128 documenten · 12 nieuw</p>
     </Widget>
   );
 }
@@ -46,7 +54,12 @@ export function EmailWidget() {
 export function KnowledgeWidget() {
   return (
     <Widget index="05" title="Knowledge" to="/knowledge" seed="focus-knowledge" size="card">
-      <div className="flex items-center gap-3"><MiniRing pct={86} size={64} color="#94925d" label="86%" /><span className="text-storm/60 text-[11px] leading-tight">coverage<br />42 artikelen</span></div>
+      <div className="flex flex-wrap gap-1.5">
+        {[["Research", 86], ["Brand", 72], ["Process", 54], ["Tech", 90]].map(([t, v]) => (
+          <span key={t} className="text-[10px] px-2 py-1 rounded-full border border-white/10 bg-white/5 text-storm/80">{t} <span className="text-storm/50 tabular-nums">{v}%</span></span>
+        ))}
+      </div>
+      <p className="text-storm/60 text-[10px]">42 artikelen · 86% coverage</p>
     </Widget>
   );
 }
@@ -68,7 +81,15 @@ export function PeopleWidget() {
 export function ProjectsWidget() {
   return (
     <Widget index="07" title="Projects" to="/focus/projects" seed="focus-projects" size="card">
-      <div className="flex items-center gap-3"><MiniRing pct={72} size={64} color="#94925d" label="72%" /><span className="text-storm/60 text-[11px] leading-tight">4 projecten<br />2 lopend</span></div>
+      <div className="flex items-end justify-center gap-3" style={{ height: 60 }}>
+        {[["Brons", 72, 42, "#94925d"], ["Q3", 45, 28, "#6b6a4a"], ["Pitch", 100, 18, "#d5e24a"]].map(([n, p, h, c]) => (
+          <div key={n} className="flex flex-col items-center gap-1">
+            <div className="rounded-full" style={{ width: 12 + h / 3, height: 12 + h / 3, background: c, opacity: 0.85 }} />
+            <span className="text-storm/60 text-[8px]">{n} {p}%</span>
+          </div>
+        ))}
+      </div>
+      <p className="text-storm/60 text-[10px] text-center">4 projecten · 2 lopend</p>
     </Widget>
   );
 }

@@ -16,11 +16,13 @@ export function ActivityWidget() {
 export function AgentsWidget() {
   return (
     <Widget index="02" title="Agents" to="/giulia/agents" seed="giulia-agents" size="sq">
-      <div className="flex items-center gap-3">
-        <MiniRing pct={60} size={64} color="#d5e24a" label="3/5" />
-        <span className="text-storm/60 text-[11px] leading-tight">3 agents<br />actief nu</span>
+      <div className="relative flex items-center justify-center" style={{ height: 96 }}>
+        <svg viewBox="-50 -50 100 100" className="w-full h-full">
+          <circle r="7" fill="#d5e24a"><animate attributeName="r" values="6;9;6" dur="1.8s" repeatCount="indefinite" /></circle>
+          {[0, 1, 2, 3, 4].map(i => { const a = (i / 5) * 2 * Math.PI - Math.PI / 2; const x = Math.cos(a) * 32, y = Math.sin(a) * 32; const on = i < 3; return (<g key={i}><line x1="0" y1="0" x2={x} y2={y} stroke={on ? "#94925d" : "#ffffff15"} strokeWidth="1" />{on && <circle cx={x} cy={y} r="9" fill="none" stroke="#d5e24a" strokeOpacity="0.5"><animate attributeName="r" values="7;13;7" dur="2s" repeatCount="indefinite" /></circle>}<circle cx={x} cy={y} r="6" fill="#301728" stroke={on ? "#94925d" : "#ffffff20"} strokeWidth="1.5" /></g>); })}
+        </svg>
       </div>
-      <div className="flex justify-center mt-1"><MiniPulse color="#94925d" bars={16} h={20} /></div>
+      <p className="text-storm/60 text-[10px] text-center">3/5 agents actief</p>
     </Widget>
   );
 }
@@ -28,9 +30,14 @@ export function AgentsWidget() {
 export function ApprovalsWidget() {
   return (
     <Widget index="03" title="Approvals" to="/approvals" seed="giulia-approvals" size="card" badge="4 wacht">
-      <div className="flex items-center gap-3">
-        <Num v="4" className="text-3xl" suffix=" open" />
-        <div className="ml-auto"><MiniPulse color="#d5e24a" bars={10} h={24} /></div>
+      <div className="flex flex-col gap-1.5">
+        {[["Factuur #204", true], ["Vergaderagenda", false], ["Concept draft", false]].map(([n, u], i) => (
+          <div key={i} className={`flex items-center gap-2 rounded-lg border px-2.5 py-1.5 ${u ? "border-urgent/40 bg-urgent/10" : "border-white/10 bg-white/5"}`}>
+            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${u ? "bg-urgent" : "bg-sand"}`} />
+            <span className="text-storm text-[11px] truncate flex-1">{n}</span>
+            <span className="text-storm/40 text-[9px] shrink-0">✓ ✕</span>
+          </div>
+        ))}
       </div>
     </Widget>
   );
@@ -93,10 +100,15 @@ export function MemoryWidget() {
 export function QuestionsWidget() {
   return (
     <Widget index="08" title="Questions" to="/giulia/questions" seed="giulia-questions" size="card">
-      <div className="flex items-center gap-3">
-        <MiniRing pct={50} size={60} color="#94925d" label="2/4" />
-        <span className="text-storm/60 text-[11px] leading-tight">2 open<br />vragen</span>
+      <div className="flex flex-col gap-1.5">
+        {[["FOCUS", "Hoogste prioriteit?"], ["SELF", "Rust vandaag?"], ["LIFE", "Wie spreken?"]].map(([d, q], i) => (
+          <div key={i} className="flex items-center gap-2">
+            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-sand/20 text-storm shrink-0">{d}</span>
+            <span className="text-storm/70 text-[11px] truncate">{q}</span>
+          </div>
+        ))}
       </div>
+      <p className="text-storm/60 text-[10px]">2 open · 2 beantwoord</p>
     </Widget>
   );
 }

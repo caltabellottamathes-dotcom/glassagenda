@@ -27,7 +27,15 @@ export function RoutinesWidget() {
 export function WakeWidget() {
   return (
     <Widget index="03" title="Wake" to="/self/wake" seed="self-wake" size="card">
-      <div className="flex items-center gap-3"><MiniRing pct={45} size={64} color="#d5e24a" label="45%" /><span className="text-storm/60 text-[11px] leading-tight">ochtend<br />07:30</span></div>
+      <div className="flex items-center gap-2">
+        {[["Op", true], ["H2O", true], ["Move", false], ["Focus", false]].map(([n, d], i) => (
+          <div key={i} className="flex flex-col items-center gap-1">
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold ${d ? "bg-sand text-storm" : "bg-white/5 text-storm/40"}`}>{i + 1}</div>
+            <span className="text-[8px] text-storm/60">{n}</span>
+          </div>
+        ))}
+      </div>
+      <p className="text-storm/60 text-[10px]">ochtend 45% · 07:30</p>
     </Widget>
   );
 }
@@ -76,7 +84,10 @@ export function PersonalTimeWidget() {
 export function SelfInsightsWidget() {
   return (
     <Widget index="08" title="Insights" to="/self/insights" seed="self-insights" size="card">
-      <div className="flex items-center gap-3"><Num v="9" className="text-3xl" /><span className="text-storm/60 text-[10px] leading-tight">inzichten<br />deze week</span><div className="ml-auto"><MiniLive color="#94925d" w={70} h={26} max={8} /></div></div>
+      <div className="flex items-end justify-between gap-1" style={{ height: 48 }}>
+        {[3, 4, 5, 4, 6, 7, 8, 9].map((v, i) => <div key={i} className="flex-1 rounded-t" style={{ height: `${(v / 9) * 100}%`, background: i >= 6 ? "#d5e24a" : "#94925d", opacity: 0.8 }} />)}
+      </div>
+      <div className="flex justify-between"><span className="text-storm/60 text-[10px]">9 inzichten</span><span className="text-urgent text-[10px] font-bold">↑ trend</span></div>
     </Widget>
   );
 }
