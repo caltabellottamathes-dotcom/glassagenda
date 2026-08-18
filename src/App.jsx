@@ -63,6 +63,7 @@ import FocusIndex from './pages/focus/Index';
 import AgendaPreview from './pages/focus/AgendaPreview';
 import ProjectsPreview from './pages/focus/ProjectsPreview';
 import LifeIndex from './pages/life/Index';
+import Widgets from './pages/Widgets';
 import HobbiesPreview from './pages/life/HobbiesPreview';
 import HouseholdPreview from './pages/life/HouseholdPreview';
 import PersonalAdminPreview from './pages/life/PersonalAdminPreview';
@@ -138,6 +139,7 @@ const AuthenticatedApp = () => {
       <Route path="/time-tracker" element={<TimeTrackerPreview />} />
       <Route path="/week" element={<WeekView />} />
       <Route path="/whatsapp" element={<WhatsAppPreview />} />
+      <Route path="/widgets" element={<Widgets />} />
       <Route path="/giulia" element={<GiuliaIndex />} />
       <Route path="/giulia/activity" element={<ActivityPreview />} />
       <Route path="/giulia/agents" element={<AgentsPreview />} />
