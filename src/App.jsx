@@ -66,6 +66,7 @@ import LifeIndex from './pages/life/Index';
 import Widgets from './pages/Widgets';
 import LifeGallery from './pages/LifeGallery';
 import Browse from './pages/Browse';
+import WhatsAppPage from './pages/WhatsAppPage';
 import HobbiesPreview from './pages/life/HobbiesPreview';
 import HouseholdPreview from './pages/life/HouseholdPreview';
 import PersonalAdminPreview from './pages/life/PersonalAdminPreview';
@@ -141,6 +142,7 @@ const AuthenticatedApp = () => {
       <Route path="/time-tracker" element={<TimeTrackerPreview />} />
       <Route path="/week" element={<WeekView />} />
       <Route path="/whatsapp" element={<WhatsAppPreview />} />
+      <Route path="/whatsapp/page" element={<WhatsAppPage />} />
       <Route path="/widgets" element={<Widgets />} />
       <Route path="/life-gallery" element={<LifeGallery />} />
       <Route path="/bladeren" element={<Browse />} />

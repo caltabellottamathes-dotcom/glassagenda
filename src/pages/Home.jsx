@@ -58,6 +58,7 @@ const NAV = [
   { to: "/widgets", label: "Widgets" },
   { to: "/life-gallery", label: "LIFE Galerij" },
   { to: "/bladeren", label: "Bladeren" },
+  { to: "/whatsapp/page", label: "WhatsApp" },
   { to: "/giulia", label: "GIULIA" },
   { to: "/focus", label: "FOCUS" },
   { to: "/life", label: "LIFE" },

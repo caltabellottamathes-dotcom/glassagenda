@@ -39,6 +39,7 @@ import TaskDetailPreview from "@/pages/modules/TaskDetailPreview";
 import TimeTrackerPreview from "@/pages/modules/TimeTrackerPreview";
 import WeekView from "@/pages/modules/WeekView";
 import WhatsAppPreview from "@/pages/modules/WhatsAppPreview";
+import WhatsAppPage from "@/pages/WhatsAppPage";
 
 const PANELS = [
   { name: "Daily State", Comp: DailyStatePanel },
@@ -79,6 +80,7 @@ const PANELS = [
   { name: "Time Tracker", Comp: TimeTrackerPreview },
   { name: "Week", Comp: WeekView },
   { name: "WhatsApp", Comp: WhatsAppPreview },
+  { name: "WhatsApp Page", Comp: WhatsAppPage },
 ];
 
 export default function Browse() {
