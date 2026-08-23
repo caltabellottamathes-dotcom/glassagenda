@@ -11,6 +11,7 @@ import Live from "@/components/gallery/Live";
 import BarsDiagrams from "@/components/gallery/BarsDiagrams";
 import Planning from "@/components/gallery/Planning";
 import AudioReactive from "@/components/gallery/AudioReactive";
+import Creative from "@/components/gallery/Creative";
 
 const SECTIONS = [
   { id: "surfaces", label: "Surfaces & Typografie" },
@@ -23,6 +24,7 @@ const SECTIONS = [
   { id: "bars", label: "Staven & Diagrammen" },
   { id: "planning", label: "Planning & Tijd" },
   { id: "audio", label: "Audio-Reactief" },
+  { id: "creative", label: "Crazy & Cool" },
 ];
 
 export default function UIGallery() {
@@ -36,7 +38,7 @@ export default function UIGallery() {
               <span className="text-storm/10 text-6xl font-bold leading-none tabular-nums select-none">UI</span>
               <div>
                 <h1 className="text-storm text-2xl sm:text-3xl font-bold tracking-tight">UI Gallery</h1>
-                <p className="text-storm/50 text-[11px] tracking-[0.25em] uppercase mt-1">Visuele bibliotheek · 132 elementen</p>
+                <p className="text-storm/50 text-[11px] tracking-[0.25em] uppercase mt-1">Visuele bibliotheek · 152 elementen</p>
               </div>
             </div>
             <Link to="/" className="shrink-0 text-storm/60 hover:text-storm text-sm flex items-center gap-1.5 pt-2"><ArrowLeft className="w-4 h-4" /> Home</Link>
@@ -61,6 +63,7 @@ export default function UIGallery() {
             <BarsDiagrams />
             <Planning />
             <AudioReactive />
+            <Creative />
           </div>
 
           <div className="h-px bg-marble/20 my-10" />
