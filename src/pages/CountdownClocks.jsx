@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useCountdown } from "@/components/countdown/CountdownClocks";
 import { OrbitRings, LiquidDigits, FlipClock, NeonSeven, PolarArc, ParticleDigits, BarStack, SpiralClock, RingPulse, Odometer } from "@/components/countdown/CountdownClocks";
 import { HexTiles, WaveBars, RadarSweep, Metronome, DiscRotate, Isotype, Galaxy, VuMeter, Constellation, GlitchCount, SolarArc, FlameRing, DnaLadder, PixelRain, CubeStack, LiquidPipes, ECG, MazeFill, Aurora, OrbitDots } from "@/components/countdown/CountdownClocks2";
+import { ODOMETER_VARIANTS } from "@/components/countdown/OdometerVariants";
 
 const DESIGNS = [
   { C: OrbitRings, title: "Orbit Rings", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
@@ -49,7 +50,7 @@ export default function CountdownClocks() {
             <div>
               <span className="text-storm/60 text-[11px] uppercase tracking-[0.3em]">UI Gallery · 13</span>
               <h1 className="text-storm text-2xl sm:text-3xl font-bold tracking-tight mt-1">Aftelklokken</h1>
-              <p className="text-storm/50 text-xs mt-1 tracking-[0.2em] uppercase">30 grafische, geanimeerde ontwerpen</p>
+              <p className="text-storm/50 text-xs mt-1 tracking-[0.2em] uppercase">40 grafische, geanimeerde ontwerpen</p>
             </div>
             <Link to="/UI-gallery" className="text-storm/60 hover:text-storm text-sm">← Gallery</Link>
           </div>
@@ -71,6 +72,28 @@ export default function CountdownClocks() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="h-px bg-marble/20 my-8"><div className="h-px w-20 bg-plum" /></div>
+          <div className="flex items-baseline gap-3 mb-1">
+            <span className="text-storm/10 text-4xl font-bold leading-none">02</span>
+            <h2 className="text-storm text-xl font-bold tracking-tight">Odometer Varianten</h2>
+          </div>
+          <p className="text-storm/50 text-xs tracking-[0.2em] uppercase mb-6">10 rollende cijfer-ontwerpen</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {ODOMETER_VARIANTS.map(({ C, title, sub }, i) => (
+              <div key={i} className="rounded-2xl border border-marble/20 bg-plum/30 p-5 flex flex-col">
+                <div className="flex items-baseline justify-between mb-4">
+                  <span className="text-storm/30 text-xs tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-storm/40 text-[9px] tracking-widest uppercase">{sub}</span>
+                </div>
+                <h3 className="text-storm text-sm font-bold tracking-wide mb-4">{title}</h3>
+                <div className="flex-1 flex items-center justify-center min-h-[140px]">
+                  <C d={time.d} h={time.h} m={time.m} maxD={45} />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
