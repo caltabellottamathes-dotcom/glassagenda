@@ -36,6 +36,7 @@ import DevelopmentPanel from './pages/self/DevelopmentPanel';
 import PersonalTimePanel from './pages/self/PersonalTimePanel';
 import InsightsPanel from './pages/self/InsightsPanel';
 import FoodPanel from './pages/self/FoodPanel';
+import GoodMorningPanel from './pages/GoodMorningPanel';
 import Taken from './pages/modules/Taken';
 import Email from './pages/modules/Email';
 import Notifications from './pages/modules/Notifications';
@@ -131,6 +132,7 @@ const AuthenticatedApp = () => {
       <Route path="/self/personal-time" element={<PersonalTimePanel />} />
       <Route path="/self/insights" element={<InsightsPanel />} />
       <Route path="/self/food" element={<FoodPanel />} />
+      <Route path="/goodmorning" element={<GoodMorningPanel />} />
       <Route path="/taken" element={<Taken />} />
       <Route path="/email" element={<Email />} />
       <Route path="/notifications" element={<Notifications />} />
