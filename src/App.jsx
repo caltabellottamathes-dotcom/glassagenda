@@ -67,6 +67,7 @@ import Widgets from './pages/Widgets';
 import LifeGallery from './pages/LifeGallery';
 import Browse from './pages/Browse';
 import UIGallery from './pages/UIGallery';
+import CountdownClocks from './pages/CountdownClocks';
 import WhatsAppPage from './pages/WhatsAppPage';
 import HobbiesPreview from './pages/life/HobbiesPreview';
 import HouseholdPreview from './pages/life/HouseholdPreview';
@@ -148,6 +149,7 @@ const AuthenticatedApp = () => {
       <Route path="/life-gallery" element={<LifeGallery />} />
       <Route path="/bladeren" element={<Browse />} />
       <Route path="/UI-gallery" element={<UIGallery />} />
+      <Route path="/aftelklokken" element={<CountdownClocks />} />
       <Route path="/giulia" element={<GiuliaIndex />} />
       <Route path="/giulia/activity" element={<ActivityPreview />} />
       <Route path="/giulia/agents" element={<AgentsPreview />} />
