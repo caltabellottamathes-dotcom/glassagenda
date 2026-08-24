@@ -12,7 +12,6 @@ const PANELS = [
   { to: "/self/personal-time", n: "07", title: "Personal Time", desc: "Hoeveel ruimte heb ik voor mezelf?" },
   { to: "/self/insights", n: "08", title: "Insights", desc: "Wat heeft SELF opgemerkt?" },
   { to: "/self/food", n: "09", title: "Food", desc: "Menu van vandaag — klik voor recept." },
-  { to: "/self/good-morning", n: "10", title: "Good Morning", desc: "Hoe ging mijn ochtend?" },
 ];
 
 export default function SelfIndex() {
