@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useCountdown } from "@/components/countdown/CountdownClocks";
 import { OrbitRings, LiquidDigits, FlipClock, NeonSeven, PolarArc, ParticleDigits, BarStack, SpiralClock, RingPulse, Odometer } from "@/components/countdown/CountdownClocks";
+import { HexTiles, WaveBars, RadarSweep, Metronome, DiscRotate, Isotype, Galaxy, VuMeter, Constellation, GlitchCount, SolarArc, FlameRing, DnaLadder, PixelRain, CubeStack, LiquidPipes, ECG, MazeFill, Aurora, OrbitDots } from "@/components/countdown/CountdownClocks2";
 
 const DESIGNS = [
   { C: OrbitRings, title: "Orbit Rings", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
@@ -14,6 +15,26 @@ const DESIGNS = [
   { C: SpiralClock, title: "Spiral Clock", sub: "Dagen · Uren · Min", units: "DHM" },
   { C: RingPulse, title: "Ring Pulse", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
   { C: Odometer, title: "Odometer Roll", sub: "Dagen · Uren · Min", units: "DHM" },
+  { C: HexTiles, title: "Hexagon Tiles", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: WaveBars, title: "Wave Bars", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: RadarSweep, title: "Radar Sweep", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: Metronome, title: "Metronome", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: DiscRotate, title: "Disc Rotate", sub: "Dagen · Uren · Min", units: "DHM" },
+  { C: Isotype, title: "Isotype Dots", sub: "Dagen · Uren · Min", units: "DHM" },
+  { C: Galaxy, title: "Galaxy Arms", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: VuMeter, title: "VU Meter", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: Constellation, title: "Constellation", sub: "Dagen · Uren · Min", units: "DHM" },
+  { C: GlitchCount, title: "Glitch Count", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: SolarArc, title: "Solar Arc", sub: "Dagen · Uren · Min", units: "DHM" },
+  { C: FlameRing, title: "Flame Ring", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: DnaLadder, title: "DNA Ladder", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: PixelRain, title: "Pixel Rain", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: CubeStack, title: "Cube Stack", sub: "Dagen · Uren · Min", units: "DHM" },
+  { C: LiquidPipes, title: "Liquid Pipes", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: ECG, title: "Heartbeat / ECG", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: MazeFill, title: "Maze Fill", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
+  { C: Aurora, title: "Aurora Waves", sub: "Dagen · Uren · Min", units: "DHM" },
+  { C: OrbitDots, title: "Orbit Dots", sub: "Dagen · Uren · Min · Sec", units: "DHMS" },
 ];
 
 export default function CountdownClocks() {
@@ -28,7 +49,7 @@ export default function CountdownClocks() {
             <div>
               <span className="text-storm/60 text-[11px] uppercase tracking-[0.3em]">UI Gallery · 13</span>
               <h1 className="text-storm text-2xl sm:text-3xl font-bold tracking-tight mt-1">Aftelklokken</h1>
-              <p className="text-storm/50 text-xs mt-1 tracking-[0.2em] uppercase">10 grafische, geanimeerde ontwerpen</p>
+              <p className="text-storm/50 text-xs mt-1 tracking-[0.2em] uppercase">30 grafische, geanimeerde ontwerpen</p>
             </div>
             <Link to="/UI-gallery" className="text-storm/60 hover:text-storm text-sm">← Gallery</Link>
           </div>
