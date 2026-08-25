@@ -14,32 +14,27 @@ const TABS = [
 export default function GoodMorningPanel() {
   const [tab, setTab] = useState("morning");
   return (
-    <div className="h-[100dvh] w-full bg-metal overflow-hidden relative">
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 16%, rgba(224,222,211,0.22) 0%, rgba(242,242,240,0.10) 28%, rgba(45,45,35,0) 60%)" }} />
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 py-4 sm:py-6 h-full">
-        <div className="rounded-[28px] border border-marble/30 bg-marble/10 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.25)] p-4 sm:p-6 h-full flex flex-col overflow-hidden">
-          {/* Tab bar — geen header */}
+    <div className="h-[100dvh] w-full overflow-hidden relative" style={{ background: "radial-gradient(circle at 20% 8%, #595f34 0%, #43471f 42%, #2D2D23 100%)" }}>
+      <div className="absolute inset-0 backdrop-blur-2xl" style={{ background: "rgba(216,218,179,0.035)" }} />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10 py-6 h-full">
+        <div className="h-full flex flex-col">
           <div className="flex items-center justify-between">
-            <div className="flex gap-1 p-1 rounded-full bg-plum/40 border border-marble/20">
+            <nav className="flex gap-7">
               {TABS.map((t) => (
-                <button key={t.id} onClick={() => setTab(t.id)} className={`px-5 py-2 rounded-full text-[11px] font-semibold tracking-[0.2em] uppercase transition-colors ${tab === t.id ? "bg-urgent text-plum" : "text-storm/60 hover:text-storm"}`}>{t.label}</button>
+                <button key={t.id} onClick={() => setTab(t.id)} className="text-sm tracking-wide pb-1.5 border-b-2 transition-colors" style={tab === t.id ? { color: "#d8dab3", borderColor: "#d5e24a" } : { color: "#94925d", borderColor: "transparent" }}>
+                  {t.label}
+                </button>
               ))}
-            </div>
+            </nav>
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 text-storm/50 text-[10px] tracking-[0.2em] uppercase">
-                <Sunrise className="w-4 h-4 text-urgent" /> Good Morning System
+              <div className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase" style={{ color: "#94925d" }}>
+                <Sunrise className="w-4 h-4" style={{ color: "#d5e24a" }} /> Good Morning
               </div>
-              <Link to="/" className="text-storm/40 hover:text-storm"><Home className="w-4 h-4" /></Link>
+              <Link to="/" style={{ color: "#94925d" }}><Home className="w-4 h-4" /></Link>
             </div>
           </div>
-
-          <div className="relative my-4">
-            <div className="h-px bg-marble/20" />
-            <div className="absolute left-0 top-0 h-px w-16 bg-plum" />
-          </div>
-
-          {/* Tab content */}
-          <div className="flex-1 min-h-0 flex flex-col">
+          <div className="h-px mt-3" style={{ background: "rgba(216,218,179,0.10)" }} />
+          <div className="flex-1 min-h-0 flex flex-col mt-5">
             {tab === "morning" && <MorningTab />}
             {tab === "routine" && <RoutineTab />}
             {tab === "settings" && <SettingsTab />}
