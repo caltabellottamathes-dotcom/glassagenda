@@ -67,9 +67,10 @@ export default function SocialOverview() {
   const close = () => setAction(null);
 
   return (
-    <div className="h-[100dvh] w-full overflow-hidden relative" style={{ background: "radial-gradient(circle at 20% 8%, #595f34 0%, #43471f 42%, #2D2D23 100%)" }}>
-      <div className="absolute inset-0 backdrop-blur-2xl" style={{ background: "rgba(216,218,179,0.035)" }} />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10 h-full flex flex-col">
+    <div className="h-[100dvh] w-full overflow-hidden relative bg-metal">
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 16%, rgba(216,218,179,0.10) 0%, rgba(242,242,240,0.04) 30%, rgba(45,45,35,0) 62%)" }} />
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8 h-full flex py-5">
+        <div className="w-full rounded-[28px] flex flex-col overflow-hidden p-6 sm:p-8 h-full" style={{ border: "1px solid rgba(216,218,179,0.18)", background: "rgba(45,45,35,0.45)", backdropFilter: "blur(24px)", boxShadow: "0 8px 40px rgba(0,0,0,0.25)" }}>
         <Headline
           kicker="01 — OVERVIEW"
           title="THE WHOLE SOCIAL SYSTEM"
@@ -134,6 +135,7 @@ export default function SocialOverview() {
               ))}
             </div>
           </Section>
+        </div>
         </div>
       </div>
 
