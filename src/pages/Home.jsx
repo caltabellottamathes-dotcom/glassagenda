@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Search, Mail, FileText, Calendar, Plus, ChevronDown, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { PageShell, GlassPanel, GlassButton, SectionHeader, Divider } from "@/components/glass";
+import ThemeToggle from "@/components/ThemeToggle";
 
 
 const WEEKDAYS = ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za"];
@@ -105,6 +106,9 @@ export default function Home() {
 
   return (
     <PageShell>
+      <div className="flex justify-end mb-4">
+        <ThemeToggle />
+      </div>
       {/* Nav inside panel */}
       <div className="flex flex-wrap gap-2 justify-center mb-6">
         {NAV.map((n) => (

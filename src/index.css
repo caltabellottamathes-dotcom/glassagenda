@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --background: 60 14% 96%;
+    --foreground: 60 8% 16%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -41,12 +41,12 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --metal: 60 12% 16%;
+    --metal: 60 14% 96%;
     --clay: 58 15% 46%;
     --sand: 58 23% 47%;
     --sky: 203 16% 74%;
-    --marble: 51 17% 85%;
-    --storm: 60 7% 95%;
+    --marble: 60 8% 24%;
+    --storm: 60 8% 16%;
     --urgent: 65 72% 59%;
     --plum: 319 35% 14%;
     --olive: 63 35% 78%;
@@ -87,6 +87,9 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --metal: 60 12% 16%;
+    --marble: 51 17% 85%;
+    --storm: 60 7% 95%;
   }
 }
 
