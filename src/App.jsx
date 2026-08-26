@@ -75,6 +75,7 @@ import HouseholdPreview from './pages/life/HouseholdPreview';
 import PersonalAdminPreview from './pages/life/PersonalAdminPreview';
 import SocialPlannerPreview from './pages/life/SocialPlannerPreview';
 import SocialPulsePreview from './pages/life/SocialPulsePreview';
+import SocialOverview from './pages/SocialOverview';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -172,6 +173,7 @@ const AuthenticatedApp = () => {
       <Route path="/life/admin" element={<PersonalAdminPreview />} />
       <Route path="/life/social-planner" element={<SocialPlannerPreview />} />
       <Route path="/life/social-pulse" element={<SocialPulsePreview />} />
+      <Route path="/social-overview" element={<SocialOverview />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
